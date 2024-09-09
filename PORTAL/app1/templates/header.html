@@ -1,0 +1,582 @@
+{% load static %}
+<header>
+    <nav class="navbar"> 
+        <img src="{% static 'logo.png' %}" alt="Logo" class="logo">
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="#" id="aboutUsBtn" class="about-btn">About Us</a></li>
+            <li class="ddropdown"><a href="#">
+                Departments</a>
+                </button>
+                <div class="ddropdown-content">
+                  <a href="Orthopedic Doctor.html">&nbsp;Orthopedic Doctor&nbsp;</a>
+                  <a href="ENT Specialist.html">&nbsp;ENT Specialist&nbsp;</a>
+                  <a href="Dermatologist.html">&nbsp;Dermatologist&nbsp;</a>
+                  <a href="General Practitioner.html">&nbsp;General Practitioner&nbsp;</a>
+                  <a href="Pediatrician.html">&nbsp;Pediatrician&nbsp;</a>
+                  <a href="Gynecologist.html">&nbsp;Gynecologist&nbsp;</a>
+                
+              </div>
+                  </li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Book Appointment</a></li>
+            <li><a href="#">Articles</a></li>  
+            <li><a href="homepage.html#CONTACTUS">Contact Us</a></li>    
+        </ul>
+    </nav>
+    <div class="user-dropdown">
+        <button class="user-button" onclick="toggleDropdown()">
+            <img src="/static/usericon.png" width="25" height="20" style="padding-left: 0.5px; padding-right: 5px;">
+            User
+        </button>
+        <div class="dropdown-content" id="dropdownMenu">
+            <a href="#profile">Profile</a>
+            <a href="#settings">Settings</a>
+            <a href="#logout">Logout</a>
+        </div>
+    </div>
+      <!-- Popup structure for About Us -->
+      <div id="aboutPopup" class="popupAbt">
+        <div class="popupAbt-content">
+            <span class="close">&times;</span>
+            <h1>About Medix</h1><p>
+            <h4>Revolutionizing Healthcare Access and Efficiency</h4><br>
+                At Medix, we are dedicated to transforming the way clinics in India operate by eliminating outdated manual processes. Our goal is to enhance patient care, streamline administrative tasks, and create a seamless healthcare experience for everyone.<br>
+            <h4>The Problem: Outdated Systems in Healthcare</h4><br>
+                Many clinics across India still rely on manual processes, which lead to inefficiencies that affect both patients and clinic staff. These traditional methods delay access to care, increase the risk of medical errors, and limit patient autonomy over their own health information.<br>
+            <h4>Why Choose Medix?</h4><br>
+            <h7>Innovative Technology: </h7>We leverage cutting-edge technology to create a seamless healthcare experience for both patients and providers.<br>
+            <h7>Patient-Centric Approach:</h7>Our solutions are designed with the patient in mind, ensuring easy access to healthcare information and services.<br>
+            <h7>Streamlined Operations:</h7>By digitizing administrative tasks, we enable clinics to focus on what matters most—patient care.<br>
+            <h4>Join Us in Revolutionizing Healthcare</h4><br>
+            At Medix, we believe that every patient deserves timely and accurate healthcare. Join us on our mission to enhance the healthcare experience in India through innovation and technology. This structure not only highlights the key issues and solutions but also presents your company as a forward-thinking leader in the healthcare sector.<br>
+                   
+            </p>
+        </div>
+    </div>
+</header>
+
+<style>
+  hr {
+            border: none; /* Remove the default border */
+            /*height: 1px; /* Set thickness */
+            /*background-color: #ffffff; /* Set color */
+            margin: 15px; /* Set margin */
+            width: 100%; /* Set width */
+            margin-left: auto; /* Center the line */
+            margin-right: auto;
+            position: relative;
+        }
+        
+        .full-width-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            /* Remove the default margins */
+            margin: 0;
+            padding: 0;
+        }
+            
+    
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;   
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width */
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(17, 17, 17, 0.7); /* Semi-transparent dark background */
+        backdrop-filter: blur(10px); /* Apply blur effect */
+        z-index: 1000; /* Ensure it stays on top of other content */
+        height: 130px; /* Height of the header */
+    }
+    
+            
+            
+            .logo {
+            width: 190px; /* Set a fixed width */
+            height: 50px; /* Maintain aspect ratio */
+            display: block; /* Ensure it behaves like a block element */
+            margin: 0 auto; /* Center the logo horizontally */
+            margin-bottom: 20px;
+            }
+            
+            /*drop down navigation bar*/
+          
+              
+              /* Dropdown button */
+              .ddropdown .dropbtn {
+                font-size: 16px;
+                box-shadow: 10px 10px 10px 10px rgb(0, 0, 0);
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit; /* Important for vertical align on mobile phones */
+                margin: 0; /* Important for vertical align on mobile phones */
+              }
+              
+              /* Add a red background color to navbar links on hover */
+              .navbar a:hover, .ddropdown:hover .ddropbtn {
+                background-color: #33A1BC;
+              }
+              
+              /* Dropdown content (hidden by default) */
+              .ddropdown-content {
+                margin-top: 10px;
+                display: none;
+                position: absolute;
+                background-color:  #444;
+                border-radius: 10px;
+                min-width: 160px;
+                box-shadow: 6px 5px 12px rgba(0, 0, 0, 0.714);
+                z-index: 1;
+              }
+              
+              /* Links inside the dropdown */
+              .ddropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+              }
+              
+              /* Add a grey background color to dropdown links on hover */
+              .ddropdown-content a:hover {
+                background-color: #ddd;
+              }
+              
+              /* Show the dropdown menu on hover */
+              .ddropdown:hover .ddropdown-content {
+                display: block;
+              }        
+            /* dropdown user profile*/
+            .user-dropdown {
+                position: relative;
+                display: inline-block;
+                /* Float the dropdown to the right */
+                position: absolute; /* Position dropdown absolutely */
+                right: 30px; /* Align to the right with some margin */
+                top: 45px; /* Align vertically */
+            }
+            
+            .user-button {
+                background-color: #e4431e; /* Green */
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .user-button:hover {
+                background-color: #7a1505; /* Darker green */
+            }
+            
+            .dropdown-content {
+                display: none; /* Hidden by default */
+                position: absolute;
+                background-color: #444; /* Light grey */
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                right: 0; /* Align dropdown to the right */
+                overflow: auto; /* Add scrollbar if needed */
+                max-height: calc(100vh - 60px); /* Set max height to viewport height minus header height */
+            }
+            
+            .dropdown-content a {
+                color: rgb(255, 250, 250);
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .dropdown-content a:hover {
+                background-color: #33A1BC;  /* Light grey on hover */
+            }
+            
+            /* Show class for dropdown */
+            .dropdown-content.show {
+                display:block;
+            }
+            
+            .nav-container {
+                display: flex;
+                justify-content: center; /* Center the buttons */
+                margin: 100px 0; /* Add some space above and below */
+            }
+            
+            .nav-button {
+                background-color: #777777; /* Grey background */
+                color: #ffffff; /* White text color */
+                border: none;
+                border-radius: 20px;
+                padding: 15px 30px;
+                margin: 0 10px; /* Space between buttons */
+                cursor: pointer;
+                transition: background-color 0.3s; /* Smooth transition for hover effect */
+            }
+            
+            .nav-button:hover {
+                background-color: #555555; /* Darker grey on hover */
+            }
+            
+            .navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center; /* Center the items */
+            }
+            
+            .navbar li {
+                margin: 0 15px; /* Space between items */
+            }
+            
+            .navbar a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+            
+            .navbar a:hover {
+                background-color: #33A1BC; /* Change background on hover */
+                color: #333; /* Change text color on hover */
+            }
+            
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+            
+            .modal-content {
+                background-color: #222;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 70%;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            }
+            
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            
+            .close:hover,
+            .close:focus {
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            
+            
+   
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+                      
+            /* pop up about me section*/
+            .popupAbt {
+                padding-top: 100px;
+                position: fixed;
+                top: 0;
+                padding-left: 30px;
+                padding-right: 30px;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+                border: #f7fbff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(5px); /* Blur effect */
+                z-index: 1000; /* Ensure it's on top */
+                display: none; /* Hidden by default */
+            }
+            
+            .popupAbt-content {
+                background-color:#3a3b3c;
+                color:white;
+                border: 1px solid #828282; /* Dark blue border */
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+                 /* Maximum width */
+            }
+
+            .about-btn {
+                color: #fffafa;            
+                border: 1px solid #536DFE; /* Dark blue outline */
+                border-radius: 100%; /* Rounded corners */
+                transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+            }
+    
+
+            /*pop up of medix video in first */
+            .popup {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(5px); /* Blur effect */
+                z-index: 1000; /* Ensure it's on top */
+                display: flex; /* Initially show the popup */
+            }
+            
+            .popup-content {
+                background-color:#6D747E;
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+                width: 70%; /* Width of the popup */
+                max-width: 600px; /* Maximum width */
+            }
+            
+            .meds-button {
+                font-size: 15px;
+                background-color: #00ffff; /* Neon blue button */
+                color: #000000; /* Black text for button */
+                border: none;
+                border-radius: 30px;
+                padding: 20px 40px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            .meds-button:hover {
+                background-color: #00cccc; /* Darker blue on hover */
+            }
+            
+            .main-content {
+                filter: blur(5px); /* Blur effect */
+                transition: filter 0.3s; /* Smooth transition */
+            }
+            .section {
+                opacity: 1;
+                transition: opacity 0.5s ease-in-out; /* Transition effect for opacity */
+            }
+            
+            .hidden {
+                opacity: 0; /* Hidden state */
+                pointer-events: none; /* Prevent interaction when hidden */
+            }
+            
+            
+            .nav-container {
+                display: flex;
+                justify-content: center; /* Center the buttons */
+                margin: 100px 0; /* Add some space above and below */
+            }
+            
+            .nav-button {
+                background-color: #777777; /* Grey background */
+                color: #ffffff; /* White text color */
+                border: none;
+                border-radius: 20px;
+                padding: 15px 30px;
+                margin: 0 10px; /* Space between buttons */
+                cursor: pointer;
+                transition: background-color 0.3s; /* Smooth transition for hover effect */
+            }
+            
+            .nav-button:hover {
+                background-color: #555555; /* Darker grey on hover */
+            }
+            
+            .navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center; /* Center the items */
+                
+            }
+            
+            .navbar li {
+                margin: 0 15px; /* Space between items */
+            }
+            
+            .navbar a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+            
+            .navbar a:hover {
+                background-color: #00ffcc; /* Change background on hover */
+                color: #333; /* Change text color on hover */
+            }
+</style>
+
+<script>
+    function togglePopup() {
+    const popupSection = document.getElementById('popup-section');
+    popupSection.classList.toggle('active'); // Toggle the active class
+
+    // Optionally, you can also blur the main content when the popup is active
+    const mainContent = document.getElementById('main-content');
+    if (popupSection.classList.contains('active')) {
+        mainContent.style.filter = 'blur(5px)'; // Apply blur effect
+    } else {
+        mainContent.style.filter = 'none'; // Remove blur effect
+    }
+}
+           // ABOUT ME SECTION POPUP 
+           document.addEventListener('DOMContentLoaded', function() {
+            const aboutBtn = document.getElementById('aboutUsBtn');
+            const aboutPopup = document.getElementById('aboutPopup');
+            const closeBtn = document.querySelector('.close');
+    
+            // Function to open the popup
+            function openPopup() {
+                aboutPopup.style.display = 'block';
+            }
+    
+            // Function to close the popup
+            function closePopup() {
+                aboutPopup.style.display = 'none';
+            }
+    
+            // Open the popup when "About Us" is clicked
+            aboutBtn.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                openPopup();
+            });
+    
+            // Close the popup when the close button is clicked
+            closeBtn.addEventListener('click', function() {
+                closePopup();
+            });
+    
+            // Close the popup if the user clicks outside the popup content
+            window.addEventListener('click', function(event) {
+                if (event.target == aboutPopup) {
+                    closePopup();
+                }
+            });
+        });
+       //dropdown menu for DEPARTMENTS
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdownToggle = document.querySelector('.dropdown-toggle');
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+        
+            dropdownToggle.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default action of the anchor
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        
+            // Optional: Close the dropdown when clicking outside of it
+            window.addEventListener('click', function (event) {
+                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
+// user profile dropdown
+function toggleDropdown() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.user-button')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+// Add CSS for the show class
+const style = document.createElement('style');
+style.innerHTML = `
+    .dropdown-content.show {
+        display: block;
+    }
+`;
+document.head.appendChild(style);
+  
+
+//meds video in popup
+function goToChatbot() {
+    // Get the video element
+    var video = document.getElementById('popupVideo');
+    
+    // Pause the video when the button is pressed
+    video.pause();
+
+    // Optionally, navigate to a different page or perform other actions here
+    // window.location.href = "your-chatbot-url.html";
+}
+
+function goToChatbot() {
+    document.getElementById('popup').style.display = 'none'; // Hide the popup
+    document.getElementById('main-content').style.filter = 'none'; // Remove blur effect
+    }
+
+    function updateTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    // Convert to 12-hour format
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Convert hour '0' to '12'
+    
+    const timeString = `${hours}:${minutes} ${ampm}`;
+    document.getElementById('current-time').textContent = timeString;
+}
+
+// Update time immediately and then every second
+updateTime();
+setInterval(updateTime, 1000);
+
+// section which is scrollinng in loop
+const container = document.querySelector('.scrollable-container');
+let isMouseDown = false;
+
+let startX, scrollLeft;
+/* Review Section Styling */
+
+
+</script>

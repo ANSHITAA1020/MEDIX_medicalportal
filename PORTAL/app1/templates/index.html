@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script> <!-- Corrected way to include JavaScript -->
+</head>
+<body>
+
+    <header>
+        <nav class="navbar"> 
+            <img src="static/logo.png" alt="Logo" class="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" id="aboutUsBtn" class="about-btn">About Us</a></li>
+                <li class="ddropdown"><a href="#">
+                    Departments</a>
+                    </button>
+                    <div class="ddropdown-content">
+                      <a href="#">&nbsp;Orthopedic Doctor&nbsp;</a>
+                      <a href="#">&nbsp;ENT Specialist&nbsp;</a>
+                      <a href="#">&nbsp;Dermatologist&nbsp;</a>
+                      <a href="#">&nbsp;General Practitioner&nbsp;</a>
+                      <a href="#">&nbsp;Pediatrician&nbsp;</a>
+                      <a href="#">&nbsp;Gynecologist&nbsp;</a>
+                    
+                  </div>
+                      </li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Book Appointment</a></li>
+                <li><a href="#">Articles</a></li>  
+                <li><a href="#CONTACTUS">Contact Us</a></li>    
+            </ul>
+        </nav>
+        <div class="user-dropdown">
+            <button class="user-button" onclick="toggleDropdown()">
+                <img src="/static/usericon.png" width="25" height="20" style="padding-left: 0.5px; padding-right: 5px;">
+                User
+            </button>
+            <div class="dropdown-content" id="dropdownMenu">
+                <a href="#profile">Profile</a>
+                <a href="#settings">Settings</a>
+                <a href="#logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    
+    <marquee behavior="scroll" direction="left">
+        Book an Appointment with doctor Momo Arya!
+    </marquee>
+
+    <!-- Popup structure for About Us -->
+    <div id="aboutPopup" class="popupAbt">
+        <div class="popupAbt-content">
+            <span class="close">&times;</span>
+            <h1>About Medix</h1><p>
+           <br> <h3>Revolutionizing Healthcare Access and Efficiency</h3><br>
+                At Medix, we are dedicated to transforming the way clinics in India operate by eliminating outdated manual processes. Our goal is to enhance patient care, streamline administrative tasks, and create a seamless healthcare experience for everyone.<br>
+            <br><h3>The Problem: Outdated Systems in Healthcare</h3><br>
+                Many clinics across India still rely on manual processes, which lead to inefficiencies that affect both patients and clinic staff. These traditional methods delay access to care, increase the risk of medical errors, and limit patient autonomy over their own health information.<br>
+            <br><h3>Why Choose Medix?</h3><br>
+            <u><h4>-Innovative Technology: </h4></u>We leverage cutting-edge technology to create a seamless healthcare experience for both patients and providers.<br>
+            <u>h4>-Patient-Centric Approach:</h4></u><Our solutions are designed with the patient in mind, ensuring easy access to healthcare information and services.<br>
+            <h4>-Streamlined Operations:</h4>By digitizing administrative tasks, we enable clinics to focus on what matters most—patient care.<br>
+           <br> <h3>Join Us in Revolutionizing Healthcare</h3><br>
+            At Medix, we believe that every patient deserves timely and accurate healthcare. Join us on our mission to enhance the healthcare experience in India through innovation and technology. This structure not only highlights the key issues and solutions but also presents your company as a forward-thinking leader in the healthcare sector.<br>
+                   
+            </p>
+        </div>
+    </div>
+    <style>
+    
+    .popupAbt {
+    padding-top: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    backdrop-filter: blur(5px); /* Blur effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+    display: none; /* Hidden by default */
+            }
+            
+            .popupAbt-content {
+                background-color:#3a3b3c;
+                color:white;
+                border: 1px solid #828282; /* Dark blue border */
+                padding: 40px;
+                border-radius: 10px;
+                text-align: left;
+                width: 90%; /* Covers 90% of the screen width */
+                max-width: 1200px; /* Maximum width */
+                max-height: 90%; /* Maximum height */
+                overflow-y: auto; /* Scrollable content if overflow */
+               
+  
+            }
+
+            .about-btn {
+                color: #fffafa;            
+                border: 1px solid #536DFE; /* Dark blue outline */
+                border-radius: 100%; /* Rounded corners */
+                transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+            }
+    </style>
+    <main>    
+    <!-- Emergency Button -->
+        <div class="emgcontainer">
+            <div class="emgvertical-button">
+                <span class="emgbutton-text">|<br><br>E<br>M<br>E<br>R<br>G<br>E<br>N<br>C<br>Y<br><br>|</span>
+                <ul class="emghover-list">
+                    <li>DELHI/NCR&nbsp;: &nbsp;&nbsp;&nbsp;00140554055</li>
+                    <li>MOHALI&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;7710777107</li>
+                    <li>DEHRADUN&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;01357193333</li>
+                    <li>BATHINDA&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;01645212039</li>
+                    <li>MUMBAI&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;02261347777</li>
+                    <li>NAGPUR&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;07127120000</li>
+                    <li>LUCKNOW&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;05226780001</li>
+                    <li>BRAIN ATTACK&nbsp;&nbsp;: &nbsp;9910204023</li>
+                </ul>
+            </div>
+        </div>
+
+    <section class="full-width-image">
+        <img src="static/back front.jpg" alt="Descriptive Text">
+    </section>
+
+
+        <!-- Popup section -->
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <h1>Hello Patient!</h1><br>
+
+                <video id="popupVideo" width="320" height="240" loop autoplay muted>
+                    <source src="static/g.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br><br>
+
+                <button class="meds-button" onclick="goToChatbot()">Let's get you checked</button>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- chat logo -->   
+    <button class="chat-logo">
+    <img src="static/chat1.png" alt="Chat Icon">
+    </button>
+
+
+    <hr><div class="heading-gridcontainer">
+        <h1>Our Services</h1>
+    </div>
+
+    <section class="grid-container">
+        <div class="box box1">
+            <h2>Box 1</h2>
+            <p>service </p>
+        </div>
+        <div class="box box2">
+            <h2>Box 2</h2>
+            <p>service </p>
+        </div>
+        <div class="box box3">
+            <h2>Box 3</h2>
+            <p>service </p>
+        </div>
+    </section>
+
+    <section class="grid-container">
+        <div class="box box4">
+            <h2>Box 4</h2>
+            <p>service </p>
+        </div>
+        <div class="box box5">
+            <h2>Box 5</h2>
+            <p>service </p>
+        </div>
+        <div class="box box6">
+            <h2>Box 6</h2>
+            <p>service </p>
+        </div>
+    </section>
+<hr>
+    <section class="scrollable-section">
+        <h1 class="section-heading">PATIENT FEEDBACKS</h1>
+        <div class="scrollable-container">
+            <div class="flex-box box1"><p>The General Practitioner at the clinic is thorough and attentive. They listen carefully to concerns and provide clear, practical advice. The clinic is well-organized, and the staff is helpful. A great choice for primary care.<br><br>★★★★☆
+            </p></div>
+            <div class="flex-box box2"><p>The Orthopedic Doctor iscompassionate. They provide accurate diagnoses and effective treatments for joint and bone issues. recommended for orthopedic care.<br><br>★★★★★
+               </p></div>
+            <div class="flex-box box3"><p>
+                "I can't thank you enough for the special, excellent care you have provided and the unique gift you are to your patients" Thank you so much for the great care and surgery you performed on me. And also thanks to the kind staff.<br><br>★★★★☆
+               </p></div>
+            <div class="flex-box box4"><p>
+                I would like to thank the team of gynecologists & pediatricians. I was under the care of Dr.Simran Kaur who with her experience & clinical acumen managed my preterm labor & ensured that I carried to term.<br><br>★★★★☆
+            </p></div>
+            <div class="flex-box box5"><p>
+                Dr.Mohit Sachdeva is fantastic with kids! Knowledgeable, patient, and caring. Always takes time to listen and explain. Our children love her, and we trust her completely. Highly recommend !.<br><br>★★★★★
+            </p></div>
+            <div class="flex-box box6"><p>
+                The ENT Specialistis highly experienced and compassionate. They take the time to explain the diagnosis and treatment options clearly.the staff is supportive. Highly recommended for ENT issues.<br><br>★★★★☆
+            </p></div>
+             <!-- Duplicate Boxes for Loop -->
+             <div class="flex-box box1"><p>The General Practitioner at the clinic is thorough and attentive. They listen carefully to concerns and provide clear, practical advice. The clinic is well-organized, and the staff is helpful. A great choice for primary care.<br><br>★★★★☆
+             </p></div>
+             <div class="flex-box box2"><p>The Orthopedic Doctor iscompassionate. They provide accurate diagnoses and effective treatments for joint and bone issues. recommended for orthopedic care.<br><br>★★★★★
+                </p></div>
+             <div class="flex-box box3"><p>
+                 "I can't thank you enough for the special, excellent care you have provided and the unique gift you are to your patients" Thank you so much for the great care and surgery you performed on me. And also thanks to the kind staff.<br><br>★★★★☆
+                </p></div>
+             <div class="flex-box box4"><p>
+                 I would like to thank the team of gynecologists & pediatricians. I was under the care of Dr.Simran Kaur who with her experience & clinical acumen managed my preterm labor & ensured that I carried to term.<br><br>★★★★☆
+             </p></div>
+             <div class="flex-box box5"><p>
+                Dr.Mohit Sachdeva is fantastic with kids! Knowledgeable, patient, and caring. Always takes time to listen and explain. Our children love her, and we trust her completely. Highly recommend !.<br><br>★★★★★
+             </p></div>
+             <div class="flex-box box6"><p>
+                 The ENT Specialistis highly experienced and compassionate. They take the time to explain the diagnosis and treatment options clearly.the staff is supportive. Highly recommended for ENT issues.<br><br>★★★★☆
+             </p></div>
+            </section>
+             
+          <div class="ContactUs" id="CONTACTUS">
+            <div > <img src="static/contactusback.png" class="contactbackground" /></div>
+            <div class="contactelements">
+            <h1 class="right-h1">CONTACT US</h1>
+            <form>      
+                <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+                <input name="email" type="text" class="feedback-input" placeholder="Email" />
+                <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+                <input type="submit" value="SUBMIT"/>
+              </form>
+              </div>
+        </div>
+
+    <footer id="footer">
+        <div>
+            © 2024 Medix Healthcare Ltd. All Rights Reserved.
+        </div>
+        <div class="right-content">
+            <a href="#"> <img src="static/G2.png" alt="Gmail" width="32" height="32"> </a>
+        </div>
+        <span id="current-time"></span> <!-- This is where the time will be displayed -->
+    </footer>
+ 
+
+    <script>
+        //scripting for the footer time here because it is only working as inline
+         function updateTime() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        // Convert to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12; // Convert hour '0' to '12'
+        
+        const timeString = `${hours}:${minutes} ${ampm}`;
+        document.getElementById('current-time').textContent = timeString;
+    }
+
+    // Update time immediately and then every second
+    updateTime();
+    setInterval(updateTime, 1000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+{% include 'header.html' %}  <!-- Include the header -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Health News Articles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;  /* Remove default margin */
+            background: linear-gradient(to right, #060B43, #070A3F);  /* Dark background */
+            color: #ffffff;  /* Light text color */
+            padding-top: 150px;
+            padding-bottom: 30px;
+        }
+        .heading-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading-container h1 {
+    font-size: 3em;
+    font-weight: bold;  /* Make the text bold */
+    background: linear-gradient(to right, #3a49d1, #733e96);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+    margin: 0;  /* Remove default margin */
+    padding: 10px 0;  /* Add some padding */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Add a subtle shadow for depth */
+    transition: transform 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+.heading-container h1:hover {
+    transform: scale(1.05);  /* Slightly enlarge the heading on hover */
+}
+        .article-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  /* Two articles per row */
+            grid-gap: 20px;
+            padding: 0 25px;  /* Padding for the container */
+        }
+        .article {
+            background-color: #1e1e1e;  /* Dark article background */
+            border-radius: 10px;  /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .article:hover {
+            transform: translateY(-5px);  /* Lift effect on hover */
+        }
+        .article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .article-content {
+            padding: 25px;
+        }
+        .article h2 {
+            margin-top: 0;
+            color: #ffffff;  /* Ensure the title is white */
+            font-size: 1.5em;  /* Increase title size */
+        }
+        .article p {
+            margin-bottom: 10px;
+            color: #cccccc;  /* Light gray for description */
+        }
+        .article a {
+            color: #007bff;  /* Link color */
+            text-decoration: none;
+        }
+        .article a:hover {
+            text-decoration: underline;  /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="heading-container">
+        <h1>Latest Health News Articles</h1>
+    </div>
+    <div class="article-container">
+        {% for article in articles %}
+            <div class="article">
+                <img src="{{ article.image }}" alt="{{ article.title }}">
+                <div class="article-content">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                    <a href="{{ article.url }}" target="_blank">Read more</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No articles found.</p>
+        {% endfor %}
+    </div>
+
+    {% include 'footer.html' %}  <!-- Include the footer -->
+</body>
+</html>

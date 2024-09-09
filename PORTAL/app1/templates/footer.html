@@ -1,0 +1,82 @@
+{% load static %}
+
+<footer id="footer">
+    <div class="left-content">
+        © 2024 Medix Healthcare Ltd. All Rights Reserved.
+    </div>
+    <div class="right-content">
+        <a href="#"> <img src="{% static 'G2.png' %}" alt="Gmail" width="32" height="32" /> </a>
+
+    </div>
+    <span id="current-time"></span> <!-- This is where the time will be displayed -->
+</footer>
+
+<style>
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px; /* Adjust height as needed */
+    background-color: rgba(6, 6, 6, 0.792); /* Semi-transparent dark background */
+    color: white; /* Footer text color */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000; /* Ensure the footer is above other content */   
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+}
+
+        .left-content{
+            padding-left: 600px;
+                    }
+        .right-content {
+            text-align: right;
+            flex: auto;
+            border-right: 1px solid #ccc; /* Vertical divider */
+            padding-right: 5px;
+         
+        }
+        
+        #footer a {
+            text-decoration: none; /* Remove underline from links */
+            color: #ffffff; /* Set link color */
+            margin-right: 5px; /* Add some space between the links */
+        }
+
+        #footer a:hover {
+            text-decoration: underline; /* Optional: Add underline on hover */
+        }
+        #current-time {
+            margin-left: 10px; /* Space between time and link */
+            margin-right:15px;
+        }
+        
+        .right-h1 {
+            text-align: right;      /* Aligns the text to the right */
+            padding-right: 250px;   /* Adds space on the right */
+        }
+
+</style>
+<script>function updateTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    // Convert to 12-hour format
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Convert hour '0' to '12'
+    
+    const timeString = `${hours}:${minutes} ${ampm}`;
+    document.getElementById('current-time').textContent = timeString;
+  }
+  
+  // Update time immediately and then every second
+  updateTime();
+  setInterval(updateTime, 1000);
+  </script>
+
+
+

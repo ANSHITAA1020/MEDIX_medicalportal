@@ -1,0 +1,745 @@
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+            body {
+                font-family: 'Roboto', sans-serif;
+                background: linear-gradient(to right,#060B43,#070A3F);
+                color: #ffffff; /* White text color */
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                padding-top: 130px; /* Adjust for header height */
+                padding-bottom: 40px; /* Adjust for footer height */
+            }
+            
+            
+            .main {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                margin-top: 20px;
+                padding: 20px;
+            } 
+            
+            
+            marquee {
+            font-size: 12px;
+            color: #0ff;
+            padding: 1px;
+            background: linear-gradient(90deg, #00101e, #010169);           
+            box-shadow: 0 0 0px rgba(0, 255, 255, 0.75);
+            animation: bounce 10s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+        
+        hr {
+            border: none; /* Remove the default border */
+            /*height: 1px; /* Set thickness */
+            /*background-color: #ffffff; /* Set color */
+            margin: 15px; /* Set margin */
+            width: 100%; /* Set width */
+            margin-left: auto; /* Center the line */
+            margin-right: auto;
+            position: relative;
+        }
+        
+        .full-width-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            /* Remove the default margins */
+            margin: 0;
+            padding: 0;
+        }
+            
+    
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;   
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width */
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(17, 17, 17, 0.7); /* Semi-transparent dark background */
+        backdrop-filter: blur(10px); /* Apply blur effect */
+        z-index: 1000; /* Ensure it stays on top of other content */
+        height: 130px; /* Height of the header */
+    }
+    
+            
+            
+            .logo {
+            width: 190px; /* Set a fixed width */
+            height: 50px; /* Maintain aspect ratio */
+            display: block; /* Ensure it behaves like a block element */
+            margin: 0 auto; /* Center the logo horizontally */
+            margin-bottom: 20px;
+            }
+            
+            /*drop down navigation bar*/
+          
+              
+              /* Dropdown button */
+              .ddropdown .dropbtn {
+                font-size: 16px;
+                box-shadow: 10px 10px 10px 10px rgb(0, 0, 0);
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit; /* Important for vertical align on mobile phones */
+                margin: 0; /* Important for vertical align on mobile phones */
+              }
+              
+              /* Add a red background color to navbar links on hover */
+              .navbar a:hover, .ddropdown:hover .ddropbtn {
+                background-color: #33A1BC;
+              }
+              
+              /* Dropdown content (hidden by default) */
+              .ddropdown-content {
+                margin-top: 10px;
+                display: none;
+                position: absolute;
+                background-color:  #444;
+                border-radius: 10px;
+                min-width: 160px;
+                box-shadow: 6px 5px 12px rgba(0, 0, 0, 0.714);
+                z-index: 1;
+              }
+              
+              /* Links inside the dropdown */
+              .ddropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+              }
+              
+              /* Add a grey background color to dropdown links on hover */
+              .ddropdown-content a:hover {
+                background-color: #ddd;
+              }
+              
+              /* Show the dropdown menu on hover */
+              .ddropdown:hover .ddropdown-content {
+                display: block;
+              }        
+            /* dropdown user profile*/
+            .user-dropdown {
+                position: relative;
+                display: inline-block;
+                /* Float the dropdown to the right */
+                position: absolute; /* Position dropdown absolutely */
+                right: 30px; /* Align to the right with some margin */
+                top: 45px; /* Align vertically */
+            }
+            
+            .user-button {
+                background-color: #e4431e; /* Green */
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .user-button:hover {
+                background-color: #7a1505; /* Darker green */
+            }
+            
+            .dropdown-content {
+                display: none; /* Hidden by default */
+                position: absolute;
+                background-color: #444; /* Light grey */
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                right: 0; /* Align dropdown to the right */
+                overflow: auto; /* Add scrollbar if needed */
+                max-height: calc(100vh - 60px); /* Set max height to viewport height minus header height */
+            }
+            
+            .dropdown-content a {
+                color: rgb(255, 250, 250);
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .dropdown-content a:hover {
+                background-color: #33A1BC;  /* Light grey on hover */
+            }
+            
+            /* Show class for dropdown */
+            .dropdown-content.show {
+                display:block;
+            }
+            
+            .nav-container {
+                display: flex;
+                justify-content: center; /* Center the buttons */
+                margin: 100px 0; /* Add some space above and below */
+            }
+            
+            .nav-button {
+                background-color: #777777; /* Grey background */
+                color: #ffffff; /* White text color */
+                border: none;
+                border-radius: 20px;
+                padding: 15px 30px;
+                margin: 0 10px; /* Space between buttons */
+                cursor: pointer;
+                transition: background-color 0.3s; /* Smooth transition for hover effect */
+            }
+            
+            .nav-button:hover {
+                background-color: #555555; /* Darker grey on hover */
+            }
+            
+            .navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center; /* Center the items */
+            }
+            
+            .navbar li {
+                margin: 0 15px; /* Space between items */
+            }
+            
+            .navbar a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+            
+            .navbar a:hover {
+                background-color: #33A1BC; /* Change background on hover */
+                color: #333; /* Change text color on hover */
+            }
+            
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+            
+            .modal-content {
+                background-color: #222;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 70%;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            }
+            
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            
+            .close:hover,
+            .close:focus {
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            
+            
+   
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+                      
+            /* pop up about me section*/
+            .popupAbt {
+                padding-top: 100px;
+                padding-left: 450px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+                border: #f7fbff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(5px); /* Blur effect */
+                z-index: 1000; /* Ensure it's on top */
+                display: none; /* Hidden by default */
+            }
+            
+            .popupAbt-content {
+                background-color:#3a3b3c;
+                border: 1px solid #828282; /* Dark blue border */
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+                width: 70%; /* Width of the popup */
+                max-width: 600px; /* Maximum width */
+            }
+
+            .about-btn {
+                color: #fff;            
+                border: 1px solid #536DFE; /* Dark blue outline */
+                border-radius: 100%; /* Rounded corners */
+                transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+            }
+    
+
+            /*pop up of medix video in first */
+            .popup {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(5px); /* Blur effect */
+                z-index: 1000; /* Ensure it's on top */
+                display: flex; /* Initially show the popup */
+            }
+            
+            .popup-content {
+                background-color:#6D747E;
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+                width: 70%; /* Width of the popup */
+                max-width: 600px; /* Maximum width */
+            }
+            
+            .meds-button {
+                font-size: 15px;
+                background-color: #00ffff; /* Neon blue button */
+                color: #000000; /* Black text for button */
+                border: none;
+                border-radius: 30px;
+                padding: 20px 40px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            .meds-button:hover {
+                background-color: #00cccc; /* Darker blue on hover */
+            }
+            
+            .main-content {
+                filter: blur(5px); /* Blur effect */
+                transition: filter 0.3s; /* Smooth transition */
+            }
+            .section {
+                opacity: 1;
+                transition: opacity 0.5s ease-in-out; /* Transition effect for opacity */
+            }
+            
+            .hidden {
+                opacity: 0; /* Hidden state */
+                pointer-events: none; /* Prevent interaction when hidden */
+            }
+            
+               /* Emergency button */
+ 
+.emgcontainer {
+    position: absolute; /* Position relative for absolute positioning of the list */
+    padding-top: 100px;
+
+}
+
+.emgvertical-button {
+    width: 30px; /* Width of the button */
+    height: 300px; /* Height of the button */
+    background-color: #D50100; /* Button color */
+    color: white; /* Text color */
+    border-radius: 0px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Position relative for the hover list */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.emgbutton-text {
+    text-align: center; /* Center the text */
+}
+
+.emghover-list {
+    display: none; /* Hide the list by default */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align to the top of the button */
+    left: 30px; /* Position to the right of the button */
+    background-color:#D50100;/* Background color of the list */
+    border: 1px solid #ddd; /* Border for the list */
+    border-radius: 0px; /* Rounded corners */
+    padding: 10px; /* Padding around the list */
+    margin-bottom: 15px; /* Add space between list items */
+    box-shadow: 6px 5px 12px rgba(0, 0, 0, 0.727);/* Shadow for a slight 3D effect */
+}
+
+.emgvertical-button:hover .emghover-list {
+    display: block; /* Show the list on hover */
+    
+
+}
+.emgvertical-button:hover{
+box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+            outline-color: rgba(255, 255, 255, 0);
+            outline-offset: 15px;
+            text-shadow: 1px 1px 2px #427388; } 
+.emghover-list li {  
+    
+    width: 250px;
+    list-style: none; /* Remove bullet points */
+    padding-left: 10px; /* Padding for list items */
+    padding-top: 10PX;
+    padding-bottom: 10px;
+    padding-right: 10px;
+  
+    cursor: pointer; /* Pointer cursor for list items */
+}
+
+            
+
+
+            .nav-container {
+                display: flex;
+                justify-content: center; /* Center the buttons */
+                margin: 100px 0; /* Add some space above and below */
+            }
+            
+            .nav-button {
+                background-color: #777777; /* Grey background */
+                color: #ffffff; /* White text color */
+                border: none;
+                border-radius: 20px;
+                padding: 15px 30px;
+                margin: 0 10px; /* Space between buttons */
+                cursor: pointer;
+                transition: background-color 0.3s; /* Smooth transition for hover effect */
+            }
+            
+            .nav-button:hover {
+                background-color: #555555; /* Darker grey on hover */
+            }
+            
+            .navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center; /* Center the items */
+                
+            }
+            
+            .navbar li {
+                margin: 0 15px; /* Space between items */
+            }
+            
+            .navbar a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+            
+            .navbar a:hover {
+                background-color: #00ffcc; /* Change background on hover */
+                color: #333; /* Change text color on hover */
+            }
+            
+                      /* Chat Button Style */
+        .chat-logo {
+            background-color: transparent;
+            position: fixed; /* Keeps it fixed in one place */
+            bottom: 50px;    /* Distance from the bottom */
+            right: 10px;     /* Distance from the right side */
+            width: 150px;     /* Width of the chat logo */
+            height: 150px;    /* Height of the chat logo */
+            justify-content: center; /* Centering horizontally */
+            align-items: center; /* Centering vertically */
+            z-index: auto;
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 50%; /* Makes the button circular */
+            transition: transform 0.3s ease; 
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            z-index: 1000; /* Ensures the button stays on top of other elements */
+           
+        }
+
+        /* Chat Icon Style */
+        .chat-logo img {
+            width: 115%; /* Icon size relative to the button */
+            height: 115%;
+            object-fit: contain;
+            border-radius: 50%;
+            
+
+        }
+        .chat-logo:hover {
+            transform: scale(1.1); /* Slightly enlarge the button on hover */
+            
+        }
+           /*heading"Our services"*/
+ .heading-gridcontainer {
+            text-align: center; /* Centers the text */
+            margin-bottom: 40px; /* Space between heading and grid containers */
+        }
+ .heading-gridcontainer h1 {
+    font-family: 'Montserrat', cursive; /* Use the Montserrat font */
+    font-size: 3em; /* Adjust font size as needed */
+    background: linear-gradient(to right, #3a49d17d, #733e96); /* Gradient color */
+    background-clip: text;  /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+    display: inline; /* Ensure the gradient is applied inline */
+        }
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    width: 96%;
+    padding-left: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.box {
+
+color: #fff ;
+text-transform: uppercase;
+text-decoration: none;
+background: rgb(37, 0, 86);
+padding: 20px;
+border-radius: 20px; /* Rounded corners (optional) */
+box-shadow: 0px 8px 16px rgba(0,0,0,0.2); /* Shadow for 3D effect (optional) */
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+}
+
+.box:hover {
+transform: translateY(-10px);
+background: #434343;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+  
+}
+
+/*scrollable section below the our services*/
+.scrollable-section {
+    background-color: #00101e;
+    padding-bottom: 50px;
+    padding-top: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Heading Styling */
+.section-heading {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #f3eded;
+}
+
+/* Scrollable Container Styling */
+.scrollable-container {
+    display: flex;
+    gap: 10px;
+    width: calc(100% + 20px);
+    animation: scroll 20s linear infinite;
+    justify-content: center;
+}
+
+/* Flex Box Styling */
+.flex-box {
+    padding: 20px;
+    margin: 10px;
+    flex: 0 0 30%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 6px 5px 12px rgba(57, 188, 248, 0.578);
+    background-color: rgb(89, 104, 116)e;
+    font-size: 1em;
+    transition: transform 0.2s ease; /* Smooth transition for interaction */
+}
+
+/* Keyframes for Scrolling Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Interaction Styles */
+.scrollable-container:hover {
+    animation-play-state: paused; /* Pause scrolling on hover */
+}
+.flex-box:hover {
+    transform: scale(1.1); /* Enlarge only the hovered box */
+}
+
+
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px; /* Adjust height as needed */
+    background-color: rgba(6, 6, 6, 0.792); /* Semi-transparent dark background */
+    color: white; /* Footer text color */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000; /* Ensure the footer is above other content */
+    padding-left: 600px;
+    padding-right: 20px;
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+}
+
+
+        .right-content {
+            text-align: right;
+            flex: auto;
+            border-right: 1px solid #ccc; /* Vertical divider */
+            padding-right: 5px;
+         
+        }
+        
+        #footer a {
+            text-decoration: none; /* Remove underline from links */
+            color: #ffffff; /* Set link color */
+            margin-right: 5px; /* Add some space between the links */
+        }
+
+        #footer a:hover {
+            text-decoration: underline; /* Optional: Add underline on hover */
+        }
+        #current-time {
+            margin-left: 10px; /* Space between time and link */
+        }
+        
+        .right-h1 {
+            text-align: right;      /* Aligns the text to the right */
+            padding-right: 250px;   /* Adds space on the right */
+        }
+
+
+        h1 {
+            padding-top: 25px;
+            text-align: center;
+            color: #f8f8f8;
+            text-shadow:(1px 1px 0 rgba(white, 1));
+         }
+         
+         .contactbackground {
+            padding-left: 100px;
+            height: 100%;
+            width: 100%;
+            background-size: cover; /* Cover the entire div */
+            background-position: center; /* Center the image */
+        }
+    .ContactUs { 
+         display: flex;
+         width: 100%;
+         background-color: #141b2e;
+         
+    }
+    .contactelements{
+        display: flex; /* Enable flexbox */
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-end; 
+    }
+         form {  margin:40px ;width :500px;  margin-right: 100px; }
+
+         .feedback-input {
+           color:white;
+           font-family: Helvetica, Arial, sans-serif;
+           font-weight:500;
+           font-size: 18px;
+           border-radius: 5px;
+           line-height: 22px;
+           background-color: transparent;
+           border:3px solid #CC6666;          
+           transition: all 0.3s;
+           padding: 13px;
+           margin-bottom: 15px;
+           width:100%;
+           box-sizing: border-box;
+           outline:0;
+         }
+         
+         .feedback-input:hover { border:3px solid #ce0e0e; }
+         .feedback-input:focus { border:3px solid #ce0e0e53; }
+         
+         textarea {
+           height: 150px;
+           line-height: 150%;
+           resize:vertical;
+         }
+         
+         [type="submit"] {
+           font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+           width: 100%;
+           background:#CC6666;
+           border-radius:5px;
+           border:0;
+           cursor:pointer;
+           color:white;
+           font-size:24px;
+           padding-top:10px;
+           padding-bottom:10px;
+           transition: all 0.3s;
+           margin-top:-4px;
+           font-weight:700;
+         }
+         [type="submit"]:hover { background :#232f4f;}

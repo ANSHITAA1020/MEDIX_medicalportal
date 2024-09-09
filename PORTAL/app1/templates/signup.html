@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,11 +136,11 @@
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5">
-                                    <form method="POST" action="{% url 'signup' %}"> <!-- Ensure the form submits to the correct URL -->
+                                    <form method="POST" action="{% url 'signup' %}">
                                         {% csrf_token %}
                                         <!-- Logo Section with Icon -->
                                         <div class="logo mb-4">
-                                            <img src="{% static 'logo.png' %}" alt="Logo"> <!-- Update the logo image source as needed -->
+                                            <img src="{% static 'logo.png' %}" alt="Logo">
                                         </div>
                                         <!-- Form Heading -->
                                         <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; font-weight: 900;">
@@ -169,6 +171,12 @@
                                         <p class="mb-5 pb-lg-2">
                                             Already have an account? <a href="{% url 'login' %}" style="color: #6c757d;">Login here</a>
                                         </p>
+                                        <!-- Google Signup Button -->
+                                        <div class="mb-4">
+                                            <a href="{% provider_login_url 'google' %}" class="btn btn-block btn-lg btn-danger">
+                                                <i class="fab fa-google mr-2"></i> Signup with Google
+                                            </a>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

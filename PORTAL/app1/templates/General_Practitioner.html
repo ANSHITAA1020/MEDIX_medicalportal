@@ -1,0 +1,156 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Description Layout</title>
+    <style>
+        /* General styling for body */
+        body {
+            background-image: url("static/back.jpg");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Styling for the container */
+        .container {
+
+            display:flex;
+            width: 1000px;
+            background-color: rgba(0, 0, 0, 0.419); /* Semi-transparent dark background */
+            color: white; /* Footer text color */
+            backdrop-filter: blur(10px); /* Apply the blur effect */
+            box-shadow: 0 10px 300px rgba(74, 231, 255, 0.755);
+            border-radius: 8px;
+            transition: all 0.3s ease; /* Smooth transition */
+            overflow: hidden;
+        }
+
+        .container:hover {
+            transform: scale(1.05); /* Slightly scale the container */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Apply a larger shadow */}
+
+        .container h1:hover {
+            color: #02fddb;
+        }
+        .container h3:hover {
+            color: #02fddb;
+        }
+
+        /* Styling for the image section */
+        .image-section img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Styling for the text section */
+        .text-section {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Styling for the heading */
+        .text-section h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        /* Styling for the paragraph */
+        .text-section p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ffe9e9;
+            line-height: 1.5;
+        }
+        .my-button {
+          
+            background-color: #440ab2; /* Green background */
+            border: none; /* Remove default border */
+            color: white; /* White text */
+            padding: 15px 32px; /* Button padding */
+            text-align: center; /* Center the text */
+            text-decoration: none; /* Remove underline from text */
+            display: inline-block;
+            font-size: 16px; /* Text size */
+            margin: 4px 2px;
+            cursor: pointer; /* Cursor changes to pointer on hover */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition */
+            width: 300px;
+        }
+
+        /* Hover effect for the button */
+        .my-button:hover {
+            background-color: #97b505; /* Darker green when hovered */
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="headers"></div>
+
+<div id="footers"></div>
+
+<script>
+           async function loadContent() {
+            // Fetch header content
+            const headerResponse = await fetch('header.html');
+            const headerContent = await headerResponse.text();
+            document.getElementById('headers').innerHTML = headerContent;
+
+            // Fetch footer content
+            const footerResponse = await fetch('footer.html');
+            const footerContent = await footerResponse.text();
+            document.getElementById('footers').innerHTML = footerContent;
+        }
+
+        // Call the async function to load the content
+        loadContent();
+
+    
+        </script>
+
+
+
+
+
+    <div class="container">
+        <!-- Left side: Image section -->
+        <div class="image-section">
+            <img src="static/General Practitioner.png" alt="Sample Image" style="width: 430px; height: 500px; padding-left: 30px; padding-top: 50px; padding-bottom: 50px;">
+        </div>
+
+        <!-- Right side: Text section -->
+        <div class="text-section">
+            <h1>Dr. Amrit Kaur</h1>
+            <i><h3>(General Practitioner)</h3></i>
+            <p>
+                Dr. Amrit Kaur is a highly qualified general practitioner with over 10 years of experience in diagnosing and treating a wide range of medical conditions. She holds an MBBS degree from a reputed medical college and has completed her residency in general medicine. Dr. Kaur is dedicated to providing personalized care and promoting preventive healthcare practices among her patients.
+<br><br>
+<h7 style=" font-weight: bold; text-decoration: underline;">Clinic Hours:</h7><br>
+Monday to Friday: 9:00 AM - 1:00 PM, 4:00 PM - 7:00 PM<br>
+Saturday: 9:00 AM - 12:00 PM<br>
+(Sunday closed)<br>
+            
+            </p>
+            <button class="my-button">Book Appointment</button>
+        </div>
+    </div>
+
+</body>
+</html>

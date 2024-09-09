@@ -1,3 +1,5 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,456 +9,273 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="static/script.js"></script> <!-- Corrected way to include JavaScript -->
 </head>
 <body>
 
-
-  <header>
-   <div class="text-center" style="background-color:rgba(17, 17, 17, 0.7); padding: 15px;">
-    <a class="navbar-brand" href="#">
-        <img src="static/logo.png" alt="Medix Logo" style="height: 60px;">
-    </a>
-</div>
-<nav class="navbar navbar-expand-lg d-flex justify-content-center" style="background-color: rgba(17, 17, 17, 0.7); padding: 5px;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav" style="margin-top: -10px;">
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#home" style="color: white; background-color:rgba(17, 17, 17, 0.7); border-radius: 20px; padding: 10px 20px; box-shadow: 0 0 10px 2px rgba(17, 17, 17, 0.7);">Home</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#about" style="color: white; background-color: rgba(17, 17, 17, 0.7); border-radius: 20px; padding: 10px 20px; box-shadow: 0 0 10px 2px rgba(17, 17, 17, 0.7);">About</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#Book an Appointment" style="color: white; background-color: rgba(17, 17, 17, 0.7); border-radius: 20px; padding: 10px 20px; box-shadow: 0 0 10px 2px rgba(17, 17, 17, 0.7);">Book an Appointment</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#Medical Records" style="color: white; background-color: rgba(17, 17, 17, 0.7); border-radius: 20px; padding: 10px 20px; box-shadow: 0 0 10px 2px rgba(17, 17, 17, 0.7);">Patient Resources</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#news" style="color: white; background-color: rgba(17, 17, 17, 0.7); border-radius: 20px; padding: 10px 20px; box-shadow: 0 0 10px 2px rgba(17, 17, 17, 0.7);">Med News</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#ai_bot" style="color: white; background-color: rgba(17, 17, 17, 0.7); border-radius: 20px; padding: 10px 20px; box-shadow: 0 0 10px 2px rgba(17, 17, 17, 0.7);">Medix AI</a>
-            </li>
-        </ul>
-    </div>
-
-
-        </div>
-
-
-
-            <div class="dropdown ml-auto" style="margin-top: -10px;">
-    <button class="btn btn-outline-light dropdown-toggle" type="button" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius: 20px; padding: 10px 20px; box-shadow: 0 0 10px 2px rgba(0, 0, 255, 0.7);">
-        <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
-        <span id="username">Welcome Anshul</span> <!-- Display logged-in user's name -->
-    </button>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userProfileDropdown">
-        <a class="dropdown-item" href="#profile"><i class="fas fa-user-cog"></i> Profile</a>
-        <a class="dropdown-item" href="#settings"><i class="fas fa-cogs"></i> Settings</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item text-danger" href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </div>
-</div>
-
-        </div>
-    </nav>
-</header>
-
-    {% comment %} <div class="nav-container">
-        <button class="nav-button">Navigation 1</button>
-        <button class="nav-button">Navigation 2</button>
-        <button class="nav-button">Navigation 3</button>
-    </div> {% endcomment %}
-    
-    
-    <main>
-       
-
-        <!-- about me section -->
-        <div class="popup" id="popup">
-            <div class="popup-content">
-                <h1>About Me</h1>
-                <br>
-                <p> This is a brief description about me.</p> <br>
-                <button class="meds-button" onclick="goToChatbot()">Time for Meds</button>
+    <header>
+        <nav class="navbar"> 
+            <img src="static/logo.png" alt="Logo" class="logo">
+            <ul>
+                <li><a href="{% url 'HomePage' %}">Home</a></li>
+                <li><a href="#" id="aboutUsBtn" class="about-btn">About Us</a></li>
+                <li class="ddropdown"><a href="#">
+                    Departments</a>
+                    </button>
+                    <div class="ddropdown-content">
+                      <a href="Orthopedic Doctor.html">&nbsp;Orthopedic Doctor&nbsp;</a>
+                      <a href="ENT Specialist.html">&nbsp;ENT Specialist&nbsp;</a>
+                      <a href="Dermatologist.html">&nbsp;Dermatologist&nbsp;</a>
+                      <a href="General Practitioner.html">&nbsp;General Practitioner&nbsp;</a>
+                      <a href="Pediatrician.html">&nbsp;Pediatrician&nbsp;</a>
+                      <a href="Gynecologist.html">&nbsp;Gynecologist&nbsp;</a>
+                    
+                  </div>
+                      </li>
+                <li><a href="{% url 'fetch_news' %}">News</a></li>
+                <li><a href="#">Book Appointment</a></li>
+                <li><a href="#">Articles</a></li>  
+                <li><a href="#CONTACTUS">Contact Us</a></li>    
+            </ul>
+        </nav>
+        <div class="user-dropdown">
+            <button class="user-button" onclick="toggleDropdown()">
+                <img src="/static/usericon.png" width="25" height="20" style="padding-left: 0.5px; padding-right: 5px;">
+                User
+            </button>
+            <div class="dropdown-content" id="dropdownMenu">
+                <a href="#profile">Profile</a>
+                <a href="#settings">Settings</a>
+                <a href="#logout">Logout</a>
             </div>
         </div>
-        
-
-
-    </main>
-    <style>
-        * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-image: url('static/back.jpg'); /* Replace with your image path or URL */
-    background-size: cover; /* Cover the entire viewport */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; 
-    backdrop-filter: blur(0px);
-    color: #ffffff; /* White text color */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-/*
-header {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%; 
-    padding: 20px;
-    text-align: center;
-    background-color: rgba(17, 17, 17, 0.7); 
-    backdrop-filter: blur(10px); 
-    z-index: 1000; 
-}
-   
-
-.logo {
-    width: 190px; 
-    height: 50px; 
-    display: block; 
-    margin: 0 auto; 
-}
-*/
-
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.chat-container {
-    display: flex;
-    align-items: center;
-    border-radius: 25px;
-    padding: 10px;
-    background-color: #6e757f; /* Darker background for the chat bar */
-    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5); /* Neon shadow effect */
-    position: relative;
-}
-
-.video-container {
-    margin-right: 10px;
-    /* Remove all margins */
-    padding: 0; /* Space between video and input */
-}
-
-.chat-video {
-    width: 75px; /* Adjust size as needed */
-    height: 75px; /* Adjust size as needed */
-    display: block;
-    margin: 0;  /* Initially hidden */
-}
-
-.chat-bar {
-    border: none;
-    outline: none;
-    padding: 10px;
-    width: 300px;
-    border-radius: 20px;
-    background-color: #444444; /* Darker input background */
-    color: #ffffff; /* Light text color for input */
-}
-
-.send-button {
-    background-color: #00ffff; /* Neon blue button */
-    color: #000000; /* Black text for button */
-    border: none;
-    border-radius: 20px;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: background-color 0.3s;
-}
-
-.send-button:hover {
-    background-color: #00cccc; /* Darker blue on hover */
-}
-
-.check-others {
-    background-color: #00ffff; /* Neon blue button */
-    color: #000000; /* Black text for button */
-    border: none;
-    border-radius: 20px;
-    padding: 10px 15px;
-    cursor: pointer;
-    position: absolute; /* Position the button absolutely */
-    top: 20px; /* Position it 20px from the top */
-    right: 20px; /* Position it 20px from the right */
-    transition: background-color 0.3s;
-}
-
-.check-others:hover {
-    background-color: #00cccc; /* Darker blue on hover */
-}
-
-.popup-section {
-    position: fixed;
-    top: 150px;
-    right: -300px; /* Start off-screen to the right */
-    background-color: #333333; /* Dark background for popup */
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 3px 30px rgba(0, 255, 255, 0.5);
-    width: 250px;
-    transition: right 0.5s ease; /* Smooth transition for sliding */
-}
-
-.popup-section.active {
-    right: 20px; /* Slide into view */
+    </header>
     
-}
+    <marquee behavior="scroll" direction="left">
+        Book an Appointment with doctor Momo Arya!
+    </marquee>
 
-
-
-.popup-section h2 {
-    color: #00ffff; /* Neon blue header */
-}
-
-.popup-section a {
-    color: #00ffff; /* Neon blue links */
-    text-decoration: none;
-}
-
-.popup-section a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-footer {
-    background-color: #111111; /* Dark footer */
-    text-align: center;
-    padding: 10px;
-}
-
-
-/* pop up about me section*/
-.popup {
+    <!-- Popup structure for About Us -->
+    <div id="aboutPopup" class="popupAbt">
+        <div class="popupAbt-content">
+            <span class="close">&times;</span>
+            <h1>About Medix</h1><p>
+           <br> <h3>Revolutionizing Healthcare Access and Efficiency</h3><br>
+                At Medix, we are dedicated to transforming the way clinics in India operate by eliminating outdated manual processes. Our goal is to enhance patient care, streamline administrative tasks, and create a seamless healthcare experience for everyone.<br>
+            <br><h3>The Problem: Outdated Systems in Healthcare</h3><br>
+                Many clinics across India still rely on manual processes, which lead to inefficiencies that affect both patients and clinic staff. These traditional methods delay access to care, increase the risk of medical errors, and limit patient autonomy over their own health information.<br>
+            <br><h3>Why Choose Medix?</h3><br>
+            <u><h4>-Innovative Technology: </h4></u>We leverage cutting-edge technology to create a seamless healthcare experience for both patients and providers.<br>
+            <u>h4>-Patient-Centric Approach:</h4></u><Our solutions are designed with the patient in mind, ensuring easy access to healthcare information and services.<br>
+            <h4>-Streamlined Operations:</h4>By digitizing administrative tasks, we enable clinics to focus on what matters most—patient care.<br>
+           <br> <h3>Join Us in Revolutionizing Healthcare</h3><br>
+            At Medix, we believe that every patient deserves timely and accurate healthcare. Join us on our mission to enhance the healthcare experience in India through innovation and technology. This structure not only highlights the key issues and solutions but also presents your company as a forward-thinking leader in the healthcare sector.<br>
+                   
+            </p>
+        </div>
+    </div>
+    <style>
+    
+    .popupAbt {
+    padding-top: 60px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    backdrop-filter: blur(5px); /* Blur effect */
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px); /* Blur effect */
     z-index: 1000; /* Ensure it's on top */
-    display: flex; /* Initially show the popup */
-}
+    display: none; /* Hidden by default */
+            }
+            
+            .popupAbt-content {
+                background-color:#3a3b3c;
+                color:white;
+                border: 1px solid #828282; /* Dark blue border */
+                padding: 40px;
+                border-radius: 10px;
+                text-align: left;
+                width: 90%; /* Covers 90% of the screen width */
+                max-width: 1200px; /* Maximum width */
+                max-height: 90%; /* Maximum height */
+                overflow-y: auto; /* Scrollable content if overflow */
+               
+  
+            }
 
-.popup-content {
-    background-color: #222222;
-    padding: 40px;
-    border-radius: 10px;
-    text-align: center;
-    width: 70%; /* Width of the popup */
-    max-width: 600px; /* Maximum width */
-}
-
-.meds-button {
-    background-color: #00ffff; /* Neon blue button */
-    color: #000000; /* Black text for button */
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.meds-button:hover {
-    background-color: #00cccc; /* Darker blue on hover */
-}
-
-.main-content {
-    filter: blur(5px); /* Blur effect */
-    transition: filter 0.3s; /* Smooth transition */
-}
-.section {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out; /* Transition effect for opacity */
-}
-
-.hidden {
-    opacity: 0; /* Hidden state */
-    pointer-events: none; /* Prevent interaction when hidden */
-}
-
-.nav-container {
-    display: flex;
-    justify-content: center; /* Center the buttons */
-    margin: 100px 0; /* Add some space above and below */
-}
-
-.nav-button {
-    background-color: #777777; /* Grey background */
-    color: #ffffff; /* White text color */
-    border: none;
-    border-radius: 20px;
-    padding: 15px 30px;
-    margin: 0 10px; /* Space between buttons */
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-
-
-.nav-button:hover {
-    background-color: #555555; /* Darker grey on hover */
-}
-
-/* Add glow to the navbar links */
-.nav-link {
-    color: #39ff14;
-    text-shadow: 0 0 8px #39ff14; /* Neon glow effect */
-}
-
-.nav-link:hover {
-    color: #00ff00;
-    text-shadow: 0 0 12px #00ff00;
-}
-
-/* Add glow to the buttons */
-.meds-button, .send-button, .check-others {
-    box-shadow: 0 0 15px #00ffff; /* Neon blue glow */
-}
-
-.meds-button:hover, .send-button:hover, .check-others:hover {
-    box-shadow: 0 0 25px #00cccc; /* Stronger glow on hover */
-}
-
-/* Add glow to the logo */
-
-
-/* Add glow to the text inside the popup */
-.popup-content h1, .popup-content p {
-    text-shadow: 0 0 8px #00ffff; /* Neon glow for text */
-}
-
-/*NAVIGATION BAR IN HEADER*/
-body {
-             /* Dark background */
-            color: #ffffff; /* White text */
-        }
-        
-        .navbar-brand, .nav-link {
-            color: #39ff14; /* Neon green */
-        }
-        .navbar-brand:hover, .nav-link:hover {
-            color: #00ff00; /* Lighter neon green on hover */
-        }
-        .dropdown-menu {
-            background-color: #1c1c1c; /* Dark dropdown */
-        }
-        .dropdown-item {
-            color: #39ff14; /* Neon green */
-        }
-        .dropdown-item:hover {
-            background-color: #39ff14; /* Neon green background on hover */
-            color: #1c1c1c; /* Dark text color on hover */
-        }
-
+            .about-btn {
+                color: #fffafa;            
+                border: 1px solid #536DFE; /* Dark blue outline */
+                border-radius: 100%; /* Rounded corners */
+                transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+            }
     </style>
+    <main>    
+    <!-- Emergency Button -->
+        <div class="emgcontainer">
+            <div class="emgvertical-button">
+                <span class="emgbutton-text">|<br><br>E<br>M<br>E<br>R<br>G<br>E<br>N<br>C<br>Y<br><br>|</span>
+                <ul class="emghover-list">
+                    <li>DELHI/NCR&nbsp;: &nbsp;&nbsp;&nbsp;00140554055</li>
+                    <li>MOHALI&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;7710777107</li>
+                    <li>DEHRADUN&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;01357193333</li>
+                    <li>BATHINDA&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;01645212039</li>
+                    <li>MUMBAI&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;02261347777</li>
+                    <li>NAGPUR&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;07127120000</li>
+                    <li>LUCKNOW&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;05226780001</li>
+                    <li>BRAIN ATTACK&nbsp;&nbsp;: &nbsp;9910204023</li>
+                </ul>
+            </div>
+        </div>
 
-    <footer>
-    <p>© <span id="current-year"></span> Medix. All rights reserved.
-    <span id="current-date-time"></span>
-</footer>
+    <section class="full-width-image">
+        <img src="static/back front.jpg" alt="Descriptive Text">
+    </section>
+
+
+        <!-- Popup section -->
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <h1>Hello Patient!</h1><br>
+
+                <video id="popupVideo" width="320" height="240" loop autoplay muted>
+                    <source src="static/g.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br><br>
+
+                <button class="meds-button" onclick="goToChatbot()">Let's get you checked</button>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- chat logo -->   
+    <button class="chat-logo">
+    <img src="static/chat1.png" alt="Chat Icon">
+    </button>
+
+
+    <hr><div class="heading-gridcontainer">
+        <h1>Our Services</h1>
+    </div>
+
+    <section class="grid-container">
+        <div class="box box1">
+            <h2>Box 1</h2>
+            <p>service </p>
+        </div>
+        <div class="box box2">
+            <h2>Box 2</h2>
+            <p>service </p>
+        </div>
+        <div class="box box3">
+            <h2>Box 3</h2>
+            <p>service </p>
+        </div>
+    </section>
+
+    <section class="grid-container">
+        <div class="box box4">
+            <h2>Box 4</h2>
+            <p>service </p>
+        </div>
+        <div class="box box5">
+            <h2>Box 5</h2>
+            <p>service </p>
+        </div>
+        <div class="box box6">
+            <h2>Box 6</h2>
+            <p>service </p>
+        </div>
+    </section>
+<hr>
+    <section class="scrollable-section">
+        <h1 class="section-heading">PATIENT FEEDBACKS</h1>
+        <div class="scrollable-container">
+            <div class="flex-box box1"><p>The General Practitioner at the clinic is thorough and attentive. They listen carefully to concerns and provide clear, practical advice. The clinic is well-organized, and the staff is helpful. A great choice for primary care.<br><br>★★★★☆
+            </p></div>
+            <div class="flex-box box2"><p>The Orthopedic Doctor iscompassionate. They provide accurate diagnoses and effective treatments for joint and bone issues. recommended for orthopedic care.<br><br>★★★★★
+               </p></div>
+            <div class="flex-box box3"><p>
+                "I can't thank you enough for the special, excellent care you have provided and the unique gift you are to your patients" Thank you so much for the great care and surgery you performed on me. And also thanks to the kind staff.<br><br>★★★★☆
+               </p></div>
+            <div class="flex-box box4"><p>
+                I would like to thank the team of gynecologists & pediatricians. I was under the care of Dr.Simran Kaur who with her experience & clinical acumen managed my preterm labor & ensured that I carried to term.<br><br>★★★★☆
+            </p></div>
+            <div class="flex-box box5"><p>
+                Dr.Mohit Sachdeva is fantastic with kids! Knowledgeable, patient, and caring. Always takes time to listen and explain. Our children love her, and we trust her completely. Highly recommend !.<br><br>★★★★★
+            </p></div>
+            <div class="flex-box box6"><p>
+                The ENT Specialistis highly experienced and compassionate. They take the time to explain the diagnosis and treatment options clearly.the staff is supportive. Highly recommended for ENT issues.<br><br>★★★★☆
+            </p></div>
+             <!-- Duplicate Boxes for Loop -->
+             <div class="flex-box box1"><p>The General Practitioner at the clinic is thorough and attentive. They listen carefully to concerns and provide clear, practical advice. The clinic is well-organized, and the staff is helpful. A great choice for primary care.<br><br>★★★★☆
+             </p></div>
+             <div class="flex-box box2"><p>The Orthopedic Doctor iscompassionate. They provide accurate diagnoses and effective treatments for joint and bone issues. recommended for orthopedic care.<br><br>★★★★★
+                </p></div>
+             <div class="flex-box box3"><p>
+                 "I can't thank you enough for the special, excellent care you have provided and the unique gift you are to your patients" Thank you so much for the great care and surgery you performed on me. And also thanks to the kind staff.<br><br>★★★★☆
+                </p></div>
+             <div class="flex-box box4"><p>
+                 I would like to thank the team of gynecologists & pediatricians. I was under the care of Dr.Simran Kaur who with her experience & clinical acumen managed my preterm labor & ensured that I carried to term.<br><br>★★★★☆
+             </p></div>
+             <div class="flex-box box5"><p>
+                Dr.Mohit Sachdeva is fantastic with kids! Knowledgeable, patient, and caring. Always takes time to listen and explain. Our children love her, and we trust her completely. Highly recommend !.<br><br>★★★★★
+             </p></div>
+             <div class="flex-box box6"><p>
+                 The ENT Specialistis highly experienced and compassionate. They take the time to explain the diagnosis and treatment options clearly.the staff is supportive. Highly recommended for ENT issues.<br><br>★★★★☆
+             </p></div>
+            </section>
+             
+          <div class="ContactUs" id="CONTACTUS">
+            <div > <img src="static/contactusback.png" class="contactbackground" /></div>
+            <div class="contactelements">
+            <h1 class="right-h1">CONTACT US</h1>
+            <form>      
+                <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+                <input name="email" type="text" class="feedback-input" placeholder="Email" />
+                <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+                <input type="submit" value="SUBMIT"/>
+              </form>
+              </div>
+        </div>
+
+    <footer id="footer">
+        <div>
+            © 2024 Medix Healthcare Ltd. All Rights Reserved.
+        </div>
+        <div class="right-content">
+            <a href="#"> <img src="static/G2.png" alt="Gmail" width="32" height="32"> </a>
+        </div>
+        <span id="current-time"></span> <!-- This is where the time will be displayed -->
+    </footer>
+ 
 
     <script>
-
-        function updateYear() {
-        const yearSpan = document.getElementById("current-year");
-        const currentYear = new Date().getFullYear();
-        yearSpan.textContent = currentYear;
-    }
-
-    // Function to update the current date and time
-    function updateDateTime() {
-        const dateTimeSpan = document.getElementById("current-date-time");
+        //scripting for the footer time here because it is only working as inline
+         function updateTime() {
         const now = new Date();
-        const options = { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: '2-digit', 
-            minute: '2-digit', 
-            second: '2-digit' 
-        };
-        dateTimeSpan.textContent = now.toLocaleDateString('en-US', options);
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        // Convert to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12; // Convert hour '0' to '12'
+        
+        const timeString = `${hours}:${minutes} ${ampm}`;
+        document.getElementById('current-time').textContent = timeString;
     }
 
-    // Call the functions on page load
-    updateYear();
-    updateDateTime();
+    // Update time immediately and then every second
+    updateTime();
+    setInterval(updateTime, 1000);
+    </script>
 
-    // Update the time every second
-    setInterval(updateDateTime, 1000);
-        const chatBar = document.getElementById('chat-bar');
-        const chatVideo = document.getElementById('chat-video');
-
-        chatBar.addEventListener('focus', () => {
-            chatVideo.play(); // Play the video when typing
-            chatVideo.style.display = 'block'; // Show video
-        });
-
-        chatBar.addEventListener('input', () => {
-            chatVideo.play(); // Keep playing the video while typing
-        });
-
-        chatBar.addEventListener('blur', () => {
-            chatVideo.pause(); // Pause the video when not typing
-            chatVideo.currentTime = 0; // Reset to the beginning
-        });
-
-        function sendMessage() {
-            // Simulate sending a message
-            alert("Message sent: " + chatBar.value);
-            chatBar.value = ''; // Clear input after sending
-            chatVideo.pause(); // Pause the video after sending
-            chatVideo.currentTime = 0; // Reset to the beginning
-        }
-
-        function togglePopup() {
-    const popupSection = document.getElementById('popup-section');
-    popupSection.classList.toggle('active'); // Toggle the active class
-
-    // Optionally, you can also blur the main content when the popup is active
-    const mainContent = document.getElementById('main-content');
-    if (popupSection.classList.contains('active')) {
-        mainContent.style.filter = 'blur(5px)'; // Apply blur effect
-    } else {
-        mainContent.style.filter = 'none'; // Remove blur effect
-    }
-}
-
-
-
-function goToChatbot() {
-    document.getElementById('popup').style.display = 'none'; // Hide the popup
-    document.getElementById('main-content').style.filter = 'none'; // Remove blur effect
-
-    }
-
- src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-</script>
 </body>
 </html>

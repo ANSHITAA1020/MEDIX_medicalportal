@@ -3,9 +3,10 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+import requests
 
-def HomePage(request):
-    return render(request, 'homepage.html')
+def home_view(request):
+    return render(request, 'home.html')
 
 def LoginPage(request):
     if request.method == 'POST':
@@ -44,3 +45,21 @@ def SignupPage(request):
         return redirect('login')  # Redirect to the login page after successful signup
 
     return render(request, 'signup.html')
+
+def fetch_news(request):
+    api_key = '421d25b85f06645b73a653c33eefd5e5'  # Your GNews API key
+    url = f'https://gnews.io/api/v4/top-headlines?country=in&category=health&token={api_key}'
+
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an error for bad responses
+        print(response.json())  # Print the entire JSON response
+        articles = response.json().get('articles', [])
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching news: {e}")
+        articles = []  # Set articles to an empty list in case of an error
+
+    return render(request, 'new_list.html', {'articles': articles})
+
+def Doctors(request):
+    return render(request, 'General Practitioner.html')
