@@ -1,0 +1,82 @@
+{% load static %}
+
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduling</title>
+    <style>
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            margin-top: 150px;
+            margin-bottom: 60px;
+        }
+        .container {
+            background-color: rgba(37, 0, 96, 0.749);
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            
+            margin: 20px;
+        }
+        .container img {
+            height: auto;
+            border-radius: 8px;
+            margin-right: 50px;
+        }
+        .container .text {
+            color: rgb(255, 255, 255);
+            max-width: 60%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .container .text {
+                max-width: 100%;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: rgb(255, 255, 255)      
+          }
+          h4 {
+            color:  rgb(204, 159, 204);;
+            margin: 0;
+            padding: 0;
+        }
+        .inline {
+            display: inline;
+            vertical-align: middle; 
+            }
+    </style>
+</head>
+<body>
+
+<h1>Appointment Scheduling</h1>
+<div class="container">
+    <img src="{% static 'appointment scedulling service.png' %}" alt="Sample Image" style="width: 800px; height: 400px;">
+    <div class="text">
+        <h2 style="color: rgb(113, 198, 221);">Simplify Your Healthcare Experience with Our Online Appointment Scheduling:</h2>
+        <p>We understand that your time is valuable. To make your healthcare experience as convenient as possible, we offer a streamlined online appointment scheduling system. Through our website, you can easily book your appointments without the need for a physical visit, saving you both time and effort. Simply fill out the easy-to-use form available on our site to select your preferred date and time. If you have any questions or need assistance while scheduling, our chatbot is available to help you in real-time. This feature ensures that you can manage your healthcare appointments efficiently and without unnecessary delays.<hr>
+         <h3 style="color: rgb(205, 97, 205);">Key Features:</h3>  <hr>
+         <h4 class="inline">Online Form:</h4>
+         <span class="inline"> Schedule your appointments directly from our website.</span><br>
+         <h4 class="inline"> Time Efficiency:</h4>
+         <span class="inline">Avoid the need for physical visits and manage your time better.</span><br>
+         <h4 class="inline">Real-Time Assistance:</h4>
+         <span class="inline"> Use our chatbot for any queries or assistance during the scheduling process.</span><br>
+         <h4 class="inline">Convenience:</h4>
+         <span class="inline">Access the appointment system anytime, from anywhere.</span><br>
+</div>
+{% include 'footer.html' %}
+
+</body>
+</html>

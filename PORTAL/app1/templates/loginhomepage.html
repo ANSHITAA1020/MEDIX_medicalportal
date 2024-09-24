@@ -1,0 +1,145 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medix login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar"> 
+            <img src="{% static 'logo.png' %}" alt="Logo" class="logo">
+            <ul>
+                <li><a href="{% static 'loginhomepage.html' %}">Home</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Signup</a></li>   
+            </ul>
+        </nav>
+    </header>
+
+    <main>    
+        <!-- Emergency Button -->
+        <div class="emgcontainer">
+            <div class="emgvertical-button">
+                <span class="emgbutton-text">|<br><br>E<br>M<br>E<br>R<br>G<br>E<br>N<br>C<br>Y<br><br>|</span>
+                <ul class="emghover-list">
+                    <li>DELHI/NCR&nbsp;: &nbsp;&nbsp;&nbsp;00140554055</li>
+                    <li>MOHALI&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;7710777107</li>
+                    <li>DEHRADUN&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;01357193333</li>
+                    <li>BATHINDA&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;01645212039</li>
+                    <li>MUMBAI&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;02261347777</li>
+                    <li>NAGPUR&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;07127120000</li>
+                    <li>LUCKNOW&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;05226780001</li>
+                    <li>BRAIN ATTACK&nbsp;&nbsp;: &nbsp;9910204023</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="full-width-image">
+            <img src="{% static 'back front.jpg' %}" alt="Descriptive Text">
+        </section>
+    </main>
+
+    <hr>
+    <div class="heading-gridcontainer">
+        <h1>OUR SERVICES</h1>
+    </div>
+
+    <section class="grid-container">
+        <a href="#" class="box box1">
+            <div class="box-content">
+                <img src="{% static 'labs.png' %}" alt="Lab Services" class="box-image">
+                <div class="box-text">
+                    <h2>Lab & Diagnostics</h2><hr>
+                    <p>We provide advanced imaging and testing, including X-rays, blood tests, and ECGs.</p>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="box box2">
+            <div class="box-content">
+                <img src="{% static 'preventive.png' %}" alt="Preventive Care" class="box-image">
+                <div class="box-text">
+                    <h2>Preventive Care</h2><hr>
+                    <p>Vaccinations, Vision & Hearing Tests, Blood Monitoring and Routine Examinations</p>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="box box3">
+            <div class="box-content">
+                <img src="{% static 'Homecare Services.png' %}" alt="Homecare Services" class="box-image">
+                <div class="box-text">
+                    <h2>Homecare Services</h2><hr>
+                    <p>Ambulance, Skilled Medical Staff & Swift Emergency Response</p>
+                </div>
+            </div>
+        </a>
+    </section>
+    
+    <section class="grid-container2">
+        <a href="#" class="box box4">
+            <div class="box-content">
+                <img src="{% static 'Mental Wellness.png' %}" alt="Health Workshops" class="box-image">
+                <div class="box-text">
+                    <h2>Health Workshops</h2><hr>
+                    <p>Mental Wellness, Women’s Health, Physical Fitness and First Aid</p>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="box box5">
+            <div class="box-content">
+                <img src="{% static 'Nutrition Consultation.png' %}" alt="Nutritional Counseling" class="box-image">
+                <div class="box-text">
+                    <h2>Nutritional Counseling</h2><hr>
+                    <p>Helping individuals of all ages make healthier food choices & nutritional guidance.</p>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="box box6">
+            <div class="box-content">
+                <img src="{% static 'Appointment Scheduling.png' %}" alt="Appointment Scheduling" class="box-image">
+                <div class="box-text">
+                    <h2>Appointment Scheduling</h2><hr>
+                    <p>Save Time with Easy Booking and Convenient Access Anytime, from Anywhere</p>
+                </div>
+            </div>
+        </a>
+    </section>
+   
+    <!-- Health Metrics Section --> 
+    <div class="red-background" id="Health metricss">
+        <h1 class="section-heading" style="margin-top: 30px;">HEALTH METRICS</h1>
+    </div>
+
+    <div id="health-metrics-container">
+        <a href="#" class="health-metric-link">
+            <div class="health-metric-box" id="metric1">
+                <img src="{% static 'kcal.png' %}" style="width: 250px; height: 250px;">
+                <p><h1>CALORIE COUNTER</h1></p>
+            </div>
+        </a>
+        <a href="#" class="health-metric-link">
+            <div class="health-metric-box" id="metric2">
+                <img src="{% static 'bmi.png' %}" style="width: 250px; height: 250px;">
+                <p><h1>BODY MASS INDEX</h1></p>
+            </div>
+        </a>
+        <a href="#" class="health-metric-link">
+            <div class="health-metric-box" id="metric3">
+                <img src="{% static 'period.png' %}" style="width: 250px; height: 250px;">
+                <p><h1>PERIOD TRACKER</h1></p>
+            </div>
+        </a>
+    </div>
+
+    
+{% include 'footer.html' %}
+</body>
+</html>

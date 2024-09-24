@@ -1,0 +1,551 @@
+{% load static %}
+
+<header>
+    <nav class="navbar"> 
+        <img src="{% static 'logo.png' %}" alt="Logo" class="logo">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about_us' %}">About Us</a></li>
+            <li class="ddropdown"><a href="{% url 'doctor-list' %}">
+                Departments</a>
+                </button>
+                <div class="ddropdown-content">
+                    <a href="{% url 'orthopedic_doctor' %}">&nbsp;Orthopaedics&nbsp;</a>
+                    <a href="{% url 'ent_specialist' %}">&nbsp;ENT &nbsp;</a>
+                    <a href="{% url 'dermatologist' %}">&nbsp;Dermatology&nbsp;</a>
+                    <a href="{% url 'general_practitioner' %}">&nbsp;General Practice&nbsp;</a>
+                    <a href="{% url 'pediatrician' %}">&nbsp;Pediatrics&nbsp;</a>
+                    <a href="{% url 'gynecologist2' %}">&nbsp;Gynecology&nbsp;</a>
+                  
+                </div>
+                  </li>
+            <li><a href="{% url 'fetch_news' %}">News</a></li>
+            <li><a href="{% url 'book_appointment' %}">Book Appointment</a></li>
+            <li><a href="{% url 'home' %}#health-metrics">Health Metrics</a></li> 
+            <li><a href="{% url 'blog_list' %}">Articles</a></li>     
+            <li><a href="{% url 'chat_with_medix' %}">Chat with Medix</a></li>    
+        </ul>
+    </nav>
+  
+
+<div class="user-dropdown">
+    <button class="user-button" onclick="toggleDropdown()">
+        <img src="{% static 'usericon.png' %}" width="25" height="20" style="padding-left: 0.5px; padding-right: 5px;">
+        {{ user.get_full_name|default:user.username }}
+    </button>
+    <div class="dropdown-content" id="dropdownMenu">
+        <a href="{% url 'view_profile' user.id %}">Profile</a>
+        <a href="{% url 'logout' %}" id="logoutbtn" class="logout-btn" onclick="showLogoutPopup()">Logout</a>
+    </div>
+</div>
+
+
+       <!-- Logout Confirmation Popup -->
+<div id="logoutConfirmation" class="popupOverlay">
+    <div class="popupContent">
+        <span class="closePopup" onclick="closeLogoutConfirmation()">&times;</span>
+        <h2>Are you sure you want to logout?</h2>
+        <button onclick="closeLogoutConfirmation()">Cancel</button>
+        <button onclick="window.location.href='logout.html'">Yes</button>
+    </div>
+</div>
+
+</header>
+
+
+    
+
+<style>
+  hr {
+            border: none; 
+            margin: 15px;
+            width: 100%; 
+            margin-left: auto; 
+            margin-right: auto;
+            position: relative;
+        }
+        
+        .full-width-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+            
+    
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;   
+        top: 0;
+        left: 0;
+        width: 100%; 
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(17, 17, 17, 0.7);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        height: 130px;
+    }
+    
+            
+            
+            .logo {
+            width: 190px; 
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            }
+            
+          
+          
+              
+              
+              .ddropdown .dropbtn {
+                font-size: 16px;
+                box-shadow: 10px 10px 10px 10px rgb(0, 0, 0);
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit; 
+                margin: 0;
+              }
+              
+              .navbar a:hover, .ddropdown:hover .ddropbtn {
+                background-color: #33A1BC;
+              }
+              
+
+              .ddropdown-content {
+                margin-top: 10px;
+                display: none;
+                position: absolute;
+                background-color:  #444;
+                border-radius: 10px;
+                min-width: 160px;
+                box-shadow: 6px 5px 12px rgba(0, 0, 0, 0.714);
+                z-index: 1;
+              }
+              
+             
+              .ddropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+              }
+              
+              
+              .ddropdown-content a:hover {
+                background-color: #ddd;
+              }
+              
+              
+              .ddropdown:hover .ddropdown-content {
+                display: block;
+              }        
+           
+            .user-dropdown {
+                position: relative;
+                display: inline-block;
+                position: absolute;
+                right: 30px;
+                top: 45px; 
+            }
+            
+            .user-button {
+                background-color: #536dfe; 
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .user-button:hover {
+                background-color: #7100a9; 
+            }
+            
+            .dropdown-content {
+                display: none; 
+                position: absolute;
+                background-color: #444; 
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                right: 0;
+                overflow: auto; 
+                max-height: calc(100vh - 60px); 
+            }
+            
+            .dropdown-content a {
+                color: rgb(255, 250, 250);
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .dropdown-content a:hover {
+                background-color: #33A1BC;  
+            }
+            
+            .dropdown-content.show {
+                display:block;
+            }
+            
+            .nav-container {
+                display: flex;
+                justify-content: center; 
+                margin: 100px 0; 
+            }
+            
+            .nav-button {
+                background-color: #777777;
+                color: #ffffff; 
+                border: none;
+                border-radius: 20px;
+                padding: 15px 30px;
+                margin: 0 10px; 
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            .nav-button:hover {
+                background-color: #555555; 
+            }
+            
+            .navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center; 
+            }
+            
+            .navbar li {
+                margin: 0 15px; 
+            }
+            
+            .navbar a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+            
+            .navbar a:hover {
+                background-color: #33A1BC; 
+                color: #333; 
+            }
+            
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+            
+            .modal-content {
+                background-color: #222;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 70%;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            }
+            
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            
+            .close:hover,
+            .close:focus {
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            
+            
+   
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+       
+
+            
+            .popup {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8); 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(5px); 
+                z-index: 1000; 
+                display: flex; 
+            }
+            
+            .popup-content {
+                background-color:#6D747E;
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+                width: 70%;
+                max-width: 600px; 
+            }
+            
+            .meds-button {
+                font-size: 15px;
+                background-color: #00ffff; 
+                color: #000000; 
+                border: none;
+                border-radius: 30px;
+                padding: 20px 40px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            .meds-button:hover {
+                background-color: #00cccc;
+            }
+            
+            .main-content {
+                filter: blur(5px); 
+                transition: filter 0.3s; 
+            }
+            .section {
+                opacity: 1;
+                transition: opacity 0.5s ease-in-out;
+            }
+            
+            .hidden {
+                opacity: 0; 
+                pointer-events: none; 
+            }
+            
+            
+            .nav-container {
+                display: flex;
+                justify-content: center; 
+                margin: 100px 0; 
+            }
+            
+            .nav-button {
+                background-color: #777777; 
+                color: #ffffff;
+                border: none;
+                border-radius: 20px;
+                padding: 15px 30px;
+                margin: 0 10px; 
+                cursor: pointer;
+                transition: background-color 0.3s; 
+            }
+            
+            .nav-button:hover {
+                background-color: #555555; 
+            }
+            
+            .navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                
+            }
+            
+            .navbar li {
+                margin: 0 15px;
+            }
+            
+            .navbar a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+            
+            .navbar a:hover {
+                background-color: #00ffcc; 
+                color: #333; 
+            }
+
+            
+         
+         .popupOverlay {
+                padding-top: 250px;
+                padding-left: 450px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000; 
+                display: none; 
+}
+
+
+.popupContent {
+                box-shadow: 0 10px 900px rgba(50, 238, 255, 0.755);
+                justify-content: center;
+                justify-items: center;
+                background-color:rgb(53, 1, 138);
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+                width: 60%; 
+               
+            }
+
+
+.closePopup {
+    color: #fff9f9;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.closePopup:hover, .closePopup:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.popupContent button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popupContent button:nth-of-type(1) {
+    background-color: #ccc;
+}
+
+.popupContent button:nth-of-type(2) {
+    background-color: #f44336; 
+    color: white;
+}
+</style>
+
+<script>
+   
+        
+       //dropdown menu for DEPARTMENTS
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdownToggle = document.querySelector('.dropdown-toggle');
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+        
+            dropdownToggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        
+    
+            window.addEventListener('click', function (event) {
+                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
+function toggleDropdown() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+}
+
+//Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.user-button')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+
+const style = document.createElement('style');
+style.innerHTML = `
+    .dropdown-content.show {
+        display: block;
+    }
+`;
+document.head.appendChild(style);
+  
+
+
+function goToChatbot() {
+    
+    var video = document.getElementById('popupVideo');
+    video.pause();
+
+}
+
+function goToChatbot() {
+    document.getElementById('popup').style.display = 'none'; 
+    document.getElementById('main-content').style.filter = 'none'; 
+    }
+
+    function updateTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    
+    hours = hours % 12;
+    hours = hours ? hours : 12; 
+    
+    const timeString = `${hours}:${minutes} ${ampm}`;
+    document.getElementById('current-time').textContent = timeString;
+}
+
+
+updateTime();
+setInterval(updateTime, 1000);
+
+
+const container = document.querySelector('.scrollable-container');
+let isMouseDown = false;
+
+let startX, scrollLeft;
+
+
+
+</script>

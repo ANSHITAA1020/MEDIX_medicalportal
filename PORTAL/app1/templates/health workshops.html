@@ -1,0 +1,108 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Workshops</title>
+    <style>
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 2100px;
+            margin: auto;
+            padding: 25px;
+            padding-top: 150px;
+        }
+        .section {
+            background-color: rgba(37, 0, 96, 0.749);
+            display: flex;
+            color: #f4f4f4;
+            align-items: center;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .section img {
+            width: 50%;
+            height: auto;
+        }
+        .text {
+            padding: 20px;
+            flex: 1;
+            font-size: larger;
+        }
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            .section img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 style="color: rgb(255, 255, 255); text-align: center;">Health Workshops</h1><hr>
+    <div class="section">
+        <img src="{% static 'women workshop.png' %}" alt="Women’s Health Workshops">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Women’s Health Workshops</h2><br>
+            <p>- We are dedicated to empowering women through knowledge and health.<br>- Our Women's Health Workshops are designed to provide valuable information on a range of topics including reproductive health, nutrition, mental well-being, and preventive care.<br>- Led by expert healthcare professionals, these sessions aim to support women in leading healthier, more informed lives.<br>- Join us every week to learn, share, and take control of your health journey.</p>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Mental Health Awareness</h2><br>
+            <p>- We believe in nurturing both physical and mental well-being.<br>- Our Mental Health Awareness Workshops are designed to educate the community about mental health, reduce stigma, and promote early intervention.<br>- These workshops provide practical tools for managing stress, anxiety, and emotional challenges. <br>- Join us to learn how to maintain mental wellness and support others in their mental health journey.</p>
+        </div>
+        <img src="{% static 'mental workshop.jpg' %}" alt="Mental Health Awareness">
+    </div>
+
+    
+    <div class="section">
+        <img src="{% static 'First Aid and Emergency Care.jpg' %}" alt="First Aid and Emergency Care">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">First Aid and Emergency Care</h2><br>
+            <p>- We prioritize your safety and well-being.<br>- Our First Aid and Emergency Care Workshops are designed to equip you with essential skills to handle medical emergencies effectively.<br>- Learn how to provide immediate care in case of accidents, injuries, or health crises before professional help arrives.<br>- These workshops are conducted by experienced healthcare professionals and are suitable for all ages.<br>- Join us to gain confidence in managing emergencies and making a difference in critical situations.</p>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Physical Fitness Workshops</h2><br>
+            <p>- We believe that a healthy body is key to overall well-being.<br>- Our Physical Fitness Workshops are designed to promote strength, flexibility, and endurance through guided exercise routines and expert advice.<br>- Whether you're a beginner or looking to enhance your fitness routine, our workshops offer personalized tips on staying active and improving physical health.<br>- Join us to learn effective ways to maintain fitness, manage stress, and build a healthier lifestyle.</p>
+        </div>
+        <img src="{% static 'physical workshop.webp' %}" alt="Physical Fitness Workshops">
+    </div>
+
+
+    <div class="section">
+        <img src="{% static 'Elderly Care Workshops.jpg' %}" alt="Elderly Care Workshops">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Elderly Care Workshops</h2><br>
+            <p>- We recognize the unique needs of our senior community.<br>- Our Elderly Care Workshops are designed to provide valuable insights and practical skills for better managing the health and well-being of elderly loved ones. Managing Chronic Conditions, Safe Medication Practices, Nutrition and Wellness.</p>
+        </div>
+    </div>
+</div>
+
+
+{% include 'footer.html' %}
+
+</body>
+</html>

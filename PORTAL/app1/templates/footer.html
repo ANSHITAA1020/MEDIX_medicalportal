@@ -1,0 +1,81 @@
+{% load static %}
+<footer id="footer">
+    <div class="left-content">
+        © 2024 Medix Healthcare Ltd. All Rights Reserved.
+    </div>
+    <div class="right-content">
+        <a href="#"> <img src="{% static 'G2.png' %}" alt="Gmail" width="32" height="32" /> </a>
+
+    </div>
+    <span id="current-time"></span>
+</footer>
+
+<style>
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px; 
+    background-color: rgba(6, 6, 6, 0.792);
+    color: white; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;   
+    backdrop-filter: blur(10px);
+}
+
+        .left-content{
+            padding-left: 600px;
+                    }
+        .right-content {
+            text-align: right;
+            flex: auto;
+            border-right: 1px solid #ccc; 
+            padding-right: 5px;
+         
+        }
+        
+        #footer a {
+            text-decoration: none;
+            color: #ffffff; 
+            margin-right: 5px; 
+        }
+
+        #footer a:hover {
+            text-decoration: underline; 
+        }
+        #current-time {
+            margin-left: 10px; 
+            margin-right:15px;
+        }
+        
+        .right-h1 {
+            text-align: right;      
+            padding-right: 250px;   
+        }
+
+</style>
+<script>function updateTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    
+    hours = hours % 12;
+    hours = hours ? hours : 12; 
+    
+    const timeString = `${hours}:${minutes} ${ampm}`;
+    document.getElementById('current-time').textContent = timeString;
+  }
+  
+
+  updateTime();
+  setInterval(updateTime, 1000);
+  </script>
+
+
+

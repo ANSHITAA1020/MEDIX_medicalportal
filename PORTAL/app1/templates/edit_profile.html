@@ -1,0 +1,174 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+<style>
+body {
+            background-image: url("{% static 'back.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 150px;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    color: #333;
+    max-height: 800px;
+    box-sizing: border-box;
+    padding-bottom: 200px; 
+}
+
+h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+label {
+    font-size: 18px;
+    color: #34495e;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="date"], select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+form .form-group {
+    flex: 1 1 calc(50% - 20px); 
+    min-width: 300px; 
+}
+
+button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<div class="container">
+    <h1>Edit Profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" value="{{ profile.first_name }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" value="{{ profile.last_name }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" value="{{ profile.date_of_birth|date:'Y-m-d' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ profile.email }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" value="{{ profile.phone_number }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="street_address">Street Address:</label>
+            <input type="text" id="street_address" name="street_address" value="{{ profile.street_address }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="{{ profile.city }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" value="{{ profile.state }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="postal_code">Postal Code:</label>
+            <input type="text" id="postal_code" name="postal_code" value="{{ profile.postal_code }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="blood_group">Blood Group:</label>
+            <select id="blood_group" name="blood_group">
+                <option value="A+" {% if profile.blood_group == "A+" %}selected{% endif %}>A+</option>
+                <option value="A-" {% if profile.blood_group == "A-" %}selected{% endif %}>A-</option>
+                <option value="B+" {% if profile.blood_group == "B+" %}selected{% endif %}>B+</option>
+                <option value="B-" {% if profile.blood_group == "B-" %}selected{% endif %}>B-</option>
+                <option value="AB+" {% if profile.blood_group == "AB+" %}selected{% endif %}>AB+</option>
+                <option value="AB-" {% if profile.blood_group == "AB-" %}selected{% endif %}>AB-</option>
+                <option value="O+" {% if profile.blood_group == "O+" %}selected{% endif %}>O+</option>
+                <option value="O-" {% if profile.blood_group == "O-" %}selected{% endif %}>O-</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="M" {% if profile.gender == "M" %}selected{% endif %}>Male</option>
+                <option value="F" {% if profile.gender == "F" %}selected{% endif %}>Female</option>
+                <option value="O" {% if profile.gender == "O" %}selected{% endif %}>Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="marital_status">Marital Status:</label>
+            <select id="marital_status" name="marital_status">
+                <option value="Single" {% if profile.marital_status == "Single" %}selected{% endif %}>Single</option>
+                <option value="Married" {% if profile.marital_status == "Married" %}selected{% endif %}>Married</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="profile_picture">Profile Picture:</label>
+            <input type="file" id="profile_picture" name="profile_picture">
+        </div>
+
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+
+{% include 'footer.html' %}

@@ -1,0 +1,120 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Medix</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("{% static 'back.jpg' %}");;
+            color: #333;
+            margin: 0;
+            padding-top:160px;
+            padding-bottom:80px;
+        }
+        
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h3 {
+            color: #2c3e50;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+   
+    <main>
+    <h1>About Medix</h1><hr>
+        <h2>Revolutionizing Healthcare Access and Efficiency</h2>
+        <p>
+            At Medix, we are dedicated to transforming the way clinics in India operate by eliminating outdated manual processes. Our goal is to enhance patient care, streamline administrative tasks, and create a seamless healthcare experience for everyone.
+        </p>
+        <hr>
+
+        <h2>The Problem: Outdated Systems in Healthcare</h2>
+        <p>
+            Many clinics across India still rely on manual processes, which lead to inefficiencies that affect both patients and clinic staff. These traditional methods delay access to care, increase the risk of medical errors, and limit patient autonomy over their own health information.
+        </p>
+        <hr>
+
+        <h2>Why Choose Medix?</h2>
+        <hr>
+        <p>
+            <u><strong>-Innovative Technology:</strong></u> We leverage cutting-edge technology to create a seamless healthcare experience for both patients and providers.<br>
+            <u><strong>-Patient-Centric Approach:</strong></u> Our solutions are designed with the patient in mind, ensuring easy access to healthcare information and services.<br>
+            <u><strong>-Streamlined Operations:</strong></u> By digitizing administrative tasks, we enable clinics to focus on what matters most—patient care.<br>
+        <u><strong>-AI-Powered Chatbot:</strong></u> Our intelligent AI chatbot provides 24/7 support, answering patient queries, assisting with appointment bookings, and offering personalized healthcare advice.
+</p>
+        <hr>
+
+        <h2>Join Us in Revolutionizing Healthcare</h2>
+        
+        <p>
+            At Medix, we believe that every patient deserves timely and accurate healthcare. Join us on our mission to enhance the healthcare experience in India through innovation and technology.
+        </p>
+        <hr>
+
+        <h2>Our Team</h2>
+        <hr>
+        <div class="team-member">
+            <img src="{% static 'profile-pic.png' %}" width="70" height="70" alt="Backend Developer">
+            <div>
+                <strong>Backend Developer</strong><br>
+                Anshita Arya
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="{% static 'profile-pic(1).png' %}" width="70" height="70" alt="Frontend Developer">
+            <div>
+                <strong>Frontend Developer</strong><br>
+                Navtej Singh
+            </div>
+        </div>
+    </main>
+
+
+{% include 'footer.html' %}
+</body>
+</html>

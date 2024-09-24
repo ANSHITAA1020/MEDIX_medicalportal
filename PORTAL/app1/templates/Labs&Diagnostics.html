@@ -1,0 +1,111 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab and Diagnostics</title>
+    <style>
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 2100px;
+            margin: auto;
+            padding: 25px;
+            padding-top: 150px;
+        }
+        .section {
+            background-color: rgba(37, 0, 96, 0.749);
+            display: flex;
+            color: #f4f4f4;
+            align-items: center;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .section img {
+            width: 50%;
+            height: auto;
+        }
+        .text {
+            padding: 20px;
+            flex: 1;
+            font-size: larger;
+        }
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            .section img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="container">
+    
+    <h1 style="color: rgb(255, 255, 255); text-align: center;">LABS & DIAGNOSTICS</h1><hr>
+    <div class="section">
+        <img src="{% static 'xrays.jpg' %}" alt="Lab Diagnostics">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">X-Ray Scans</h2><br>
+            <p>- We are dedicated to providing top-notch diagnostic services to support your health and well-being.<br> - Our clinic is equipped with cutting-edge digital X-ray technology that ensures high-resolution images for precise diagnosis and treatment.<br> - We offer a comprehensive range of X-ray services, including chest X-rays to evaluate respiratory and cardiac conditions, bone X-rays for assessing fractures and joint issues, and abdominal X-rays to investigate gastrointestinal and urinary concerns.<br> - Our experienced radiologists are committed to delivering accurate and timely results, ensuring you receive the best possible care. With our advanced imaging capabilities and patient-focused approach.</p>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Blood Tests</h2><br>
+            <p>- We are dedicated to providing comprehensive diagnostic services to ensure your health is well monitored.<br> - Our range of blood tests includes essential screenings such as complete blood count (CBC), basic metabolic panel (BMP), lipid profile, liver function tests, and thyroid function tests.<br> - We also offer specialized tests like hemoglobin A1c for diabetes management, vitamin D levels, and hormone panels. With our state-of-the-art equipment and experienced staff, we strive to deliver accurate and timely results to support your healthcare needs.</p>
+        </div>
+        <img src="{% static 'blood tests.jpg' %}" alt="Blood Tests">
+    </div>
+
+    
+    <div class="section">
+        <img src="{% static 'ECG.jpg' %}" alt="ECG">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">(ECG) Electrocardiogram Test</h2><br>
+            <p>- We are dedicated to providing comprehensive healthcare services to our community.<br> - Our clinics are equipped with advanced ECG (electrocardiogram) technology to ensure accurate and efficient cardiac assessments.<br> - The ECG machines at our facilities help in diagnosing and monitoring heart conditions, providing crucial information for effective treatment planning.<br> - Our commitment to utilizing cutting-edge equipment underscores our mission to deliver high-quality medical care and enhance the well-being of our patients.</p>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Ultrasound Scans</h2><br>
+            <p>- We are committed to providing comprehensive healthcare services to our community.<br> - Our state-of-the-art facilities include advanced ultrasound technology, ensuring accurate and timely diagnostic imaging.<br> - Our ultrasound services are available at all of our clinics, designed to support a wide range of medical needs from routine check-ups to more specialized examinations.<br> - With our experienced staff and modern equipment, you can trust that you are receiving top-quality care right in your neighborhood.</p>
+        </div>
+        <img src="{% static 'ultrasound.jpeg' %}" alt="Ultrasound Scans">
+    </div>
+
+    
+    <div class="section">
+        <img src="{% static 'Spirometry.jpg' %}" alt="Spirometry Scans">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Spirometry Scans</h2><br>
+            <p>- We are dedicated to providing comprehensive healthcare services to our community.<br> - We offer advanced diagnostic tools and procedures to ensure accurate and timely assessments of your health.<br> - Among our range of services, we are proud to include Spirometry tests. This essential diagnostic procedure measures lung function and helps in the evaluation of respiratory conditions such as asthma, chronic obstructive pulmonary disease (COPD), and other breathing disorders.<br> - Our state-of-the-art Spirometry equipment, combined with our skilled medical professionals, ensures that you receive precise and reliable results, guiding effective treatment and management of your respiratory health.</p>
+        </div>
+    </div>
+</div>
+
+
+
+{% include 'footer.html' %}
+
+</body>
+</html>

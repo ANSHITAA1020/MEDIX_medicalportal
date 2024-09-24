@@ -1,0 +1,104 @@
+{% load static %}
+{% include 'header.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Health News Articles</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("{% static 'back.jpg' %}");;
+            color: #333;
+            margin: 0;
+            padding-top:140px;
+            padding-bottom:70px;
+        }
+        .heading-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading-container h1 {
+    font-size: 3em;
+    font-weight: bold;  
+    color: white;  
+    
+    background-clip: border-box;  
+    display: inline;
+    margin: 0; 
+    padding: 10px 0;  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.heading-container h1:hover {
+    transform: scale(1.05); 
+}
+        .article-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  
+            grid-gap: 20px;
+            padding: 0 25px;  
+        }
+        .article {
+            background-color: #1e1e1e;
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .article:hover {
+            transform: translateY(-5px);  
+        }
+        .article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .article-content {
+            padding: 25px;
+        }
+        .article h2 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.5em;  
+        }
+        .article p {
+            margin-bottom: 10px;
+            color: #cccccc;
+        }
+        .article a {
+            color: #007bff;  
+            text-decoration: none;
+        }
+        .article a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading-container">
+        <h1>Latest Health News Articles</h1>
+    </div>
+    <div class="article-container">
+        {% for article in articles %}
+            <div class="article">
+                <img src="{{ article.image }}" alt="{{ article.title }}">
+                <div class="article-content">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                    <a href="{{ article.url }}" target="_blank">Read more</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No articles found.</p>
+        {% endfor %}
+    </div>
+
+    {% include 'footer.html' %}  
+</body>
+</html>
