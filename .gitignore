@@ -1,3 +1,6 @@
+ 
+__pycache__/
 .env
-virtualenv
-__pycache__
+virtualenv/
+settings.py
+migrations

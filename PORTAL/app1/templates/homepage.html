@@ -1,4 +1,9 @@
 
+{% include 'header.html' %}
+<marquee behavior="scroll" direction="left">
+        Prebook Your Medical Appointments and Save 20%! Skip the Lines and Get Hassle-Free Care.
+    </marquee>
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,112 +14,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/styles.css">
-    <script src="static/script.js"></script> <!-- Corrected way to include JavaScript -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'script.js' %}"></script> 
 </head>
 <body>
 
-    <header>
-        <nav class="navbar"> 
-            <img src="static/logo.png" alt="Logo" class="logo">
-            <ul>
-                <li><a href="{% url 'HomePage' %}">Home</a></li>
-                <li><a href="#" id="aboutUsBtn" class="about-btn">About Us</a></li>
-                <li class="ddropdown"><a href="#">
-                    Departments</a>
-                    </button>
-                    <div class="ddropdown-content">
-                      <a href="Orthopedic Doctor.html">&nbsp;Orthopedic Doctor&nbsp;</a>
-                      <a href="ENT Specialist.html">&nbsp;ENT Specialist&nbsp;</a>
-                      <a href="Dermatologist.html">&nbsp;Dermatologist&nbsp;</a>
-                      <a href="General Practitioner.html">&nbsp;General Practitioner&nbsp;</a>
-                      <a href="Pediatrician.html">&nbsp;Pediatrician&nbsp;</a>
-                      <a href="Gynecologist.html">&nbsp;Gynecologist&nbsp;</a>
-                    
-                  </div>
-                      </li>
-                <li><a href="{% url 'fetch_news' %}">News</a></li>
-                <li><a href="#">Book Appointment</a></li>
-                <li><a href="#">Articles</a></li>  
-                <li><a href="#CONTACTUS">Contact Us</a></li>    
-            </ul>
-        </nav>
-        <div class="user-dropdown">
-            <button class="user-button" onclick="toggleDropdown()">
-                <img src="/static/usericon.png" width="25" height="20" style="padding-left: 0.5px; padding-right: 5px;">
-                User
-            </button>
-            <div class="dropdown-content" id="dropdownMenu">
-                <a href="#profile">Profile</a>
-                <a href="#settings">Settings</a>
-                <a href="#logout">Logout</a>
-            </div>
-        </div>
-    </header>
-    
-    <marquee behavior="scroll" direction="left">
-        Book an Appointment with doctor Momo Arya!
-    </marquee>
 
-    <!-- Popup structure for About Us -->
-    <div id="aboutPopup" class="popupAbt">
-        <div class="popupAbt-content">
-            <span class="close">&times;</span>
-            <h1>About Medix</h1><p>
-           <br> <h3>Revolutionizing Healthcare Access and Efficiency</h3><br>
-                At Medix, we are dedicated to transforming the way clinics in India operate by eliminating outdated manual processes. Our goal is to enhance patient care, streamline administrative tasks, and create a seamless healthcare experience for everyone.<br>
-            <br><h3>The Problem: Outdated Systems in Healthcare</h3><br>
-                Many clinics across India still rely on manual processes, which lead to inefficiencies that affect both patients and clinic staff. These traditional methods delay access to care, increase the risk of medical errors, and limit patient autonomy over their own health information.<br>
-            <br><h3>Why Choose Medix?</h3><br>
-            <u><h4>-Innovative Technology: </h4></u>We leverage cutting-edge technology to create a seamless healthcare experience for both patients and providers.<br>
-            <u>h4>-Patient-Centric Approach:</h4></u><Our solutions are designed with the patient in mind, ensuring easy access to healthcare information and services.<br>
-            <h4>-Streamlined Operations:</h4>By digitizing administrative tasks, we enable clinics to focus on what matters most—patient care.<br>
-           <br> <h3>Join Us in Revolutionizing Healthcare</h3><br>
-            At Medix, we believe that every patient deserves timely and accurate healthcare. Join us on our mission to enhance the healthcare experience in India through innovation and technology. This structure not only highlights the key issues and solutions but also presents your company as a forward-thinking leader in the healthcare sector.<br>
-                   
-            </p>
-        </div>
-    </div>
-    <style>
-    
-    .popupAbt {
-    padding-top: 60px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
-    backdrop-filter: blur(5px); /* Blur effect */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure it's on top */
-    display: none; /* Hidden by default */
-            }
-            
-            .popupAbt-content {
-                background-color:#3a3b3c;
-                color:white;
-                border: 1px solid #828282; /* Dark blue border */
-                padding: 40px;
-                border-radius: 10px;
-                text-align: left;
-                width: 90%; /* Covers 90% of the screen width */
-                max-width: 1200px; /* Maximum width */
-                max-height: 90%; /* Maximum height */
-                overflow-y: auto; /* Scrollable content if overflow */
-               
-  
-            }
 
-            .about-btn {
-                color: #fffafa;            
-                border: 1px solid #536DFE; /* Dark blue outline */
-                border-radius: 100%; /* Rounded corners */
-                transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
-            }
-    </style>
+    
+    
     <main>    
     <!-- Emergency Button -->
         <div class="emgcontainer">
@@ -134,17 +42,17 @@
         </div>
 
     <section class="full-width-image">
-        <img src="static/back front.jpg" alt="Descriptive Text">
+        <img src="{% static 'back front.jpg' %}" alt="Descriptive Text">
     </section>
 
 
-        <!-- Popup section -->
+        
         <div class="popup" id="popup">
             <div class="popup-content">
                 <h1>Hello Patient!</h1><br>
 
                 <video id="popupVideo" width="320" height="240" loop autoplay muted>
-                    <source src="static/g.mp4" type="video/mp4">
+                    <source src="{% static 'g.mp4' %}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video><br><br>
 
@@ -153,47 +61,116 @@
         </div>
         
     </main>
+   
+    <button class="chat-logo" onclick="redirectToMedix()">
+    <img src="{% static 'chat1.png' %}" alt="Chat Icon">
+</button>
 
-    <!-- chat logo -->   
-    <button class="chat-logo">
-    <img src="static/chat1.png" alt="Chat Icon">
-    </button>
+<script>
+function redirectToMedix() {
+    window.location.href = "http://127.0.0.1:8000/chat/"; // Medix AI bot URL
+}
+</script>
 
 
-    <hr><div class="heading-gridcontainer">
-        <h1>Our Services</h1>
+ <hr>
+<div class="heading-gridcontainer">
+    <h1>OUR SERVICES</h1>
+</div>
+
+<section class="grid-container">
+    <a href="{% url 'labs_diagnostics' %}" class="box box1">  <!-- Updated URL -->
+        <div class="box-content">
+            <img src="{% static 'labs.png' %}" alt="Lab Services" class="box-image">
+            <div class="box-text">
+                <h2>Lab & Diagnostics</h2>
+                <hr>
+                <p>We provide advanced imaging and testing, including X-rays, blood tests, and ECGs.</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'preventive_care' %}" class="box box2">  <!-- Updated URL -->
+        <div class="box-content">
+            <img src="{% static 'preventive.png' %}" alt="Preventive Care" class="box-image">
+            <div class="box-text">
+                <h2>Preventive Care</h2>
+                <hr>
+                <p>Vaccinations, Vision & Hearing Tests, Blood Monitoring and Routine Examinations</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'homecare_services' %}" class="box box3">  <!-- Updated URL -->
+        <div class="box-content">
+            <img src="{% static 'Homecare Services.png' %}" alt="Homecare Services" class="box-image">
+            <div class="box-text">
+                <h2>Homecare Services</h2>
+                <hr>
+                <p>Ambulance, Skilled Medical Staff & Swift Emergency Response</p>
+            </div>
+        </div>
+    </a>
+</section>
+
+<section class="grid-container2">
+    <a href="{% url 'health_workshops' %}" class="box box4">  <!-- Updated URL -->
+        <div class="box-content">
+            <img src="{% static 'Mental Wellness.png' %}" alt="Health Workshops" class="box-image">
+            <div class="box-text">
+                <h2>Health Workshops</h2>
+                <hr>
+                <p>Mental Wellness, Women’s Health, Physical Fitness and First Aid</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'nutritional_counseling' %}" class="box box5">  <!-- Updated URL -->
+        <div class="box-content">
+            <img src="{% static 'Nutrition Consultation.png' %}" alt="Nutritional Counseling" class="box-image">
+            <div class="box-text">
+                <h2>Nutritional Counseling</h2>
+                <hr>
+                <p>Helping individuals of all ages make healthier food choices & nutritional guidance.</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'appointment_scheduling' %}" class="box box6">  <!-- Updated URL -->
+        <div class="box-content">
+            <img src="{% static 'Appointment Scheduling.png' %}" alt="Appointment Scheduling" class="box-image">
+            <div class="box-text">
+                <h2>Appointment Scheduling</h2>
+                <hr>
+                <p>Save Time with Easy Booking and Convenient Access Anytime, from Anywhere</p>
+            </div>
+        </div>
+    </a>
+</section>
+   <!-- Health Metrics Section --> 
+    
+   <div class="red-background" id ="health-metrics">
+    <h1 class="section-heading" style="margin-top: 30px;">HEALTH METRICS</h1>
+</div>
+
+    <div id="health-metrics-container">
+       
+        <a href="{% url 'calorie-counter' %}" class="health-metric-link">
+        <div class="health-metric-box" id="metric1">
+            <img src="{% static 'kcal.png' %}" style="width: 250px; height: 250px;">
+            <p><h1>CALORIE COUNTER</h1></p>
+        </div>
+    </a>
+    <a href="{% url 'calculate-BMI' %}" class="health-metric-link">
+        <div class="health-metric-box" id="metric2">
+            <img src="{% static 'bmi.png' %}"style="width: 250px; height: 250px;">
+            <p><h1>BODY MASS INDEX</h1></p>
+        </div>
+    </a>
+        <a href="{% url 'period-tracker' %}" class="health-metric-link">
+        <div class="health-metric-box" id="metric3">
+            <img src="{% static 'period.png' %}"style="width: 250px; height: 250px;">
+            <p><h1>PERIOD TRACKER</h1></p>
+        </div>
+    </a>
     </div>
 
-    <section class="grid-container">
-        <div class="box box1">
-            <h2>Box 1</h2>
-            <p>service </p>
-        </div>
-        <div class="box box2">
-            <h2>Box 2</h2>
-            <p>service </p>
-        </div>
-        <div class="box box3">
-            <h2>Box 3</h2>
-            <p>service </p>
-        </div>
-    </section>
-
-    <section class="grid-container">
-        <div class="box box4">
-            <h2>Box 4</h2>
-            <p>service </p>
-        </div>
-        <div class="box box5">
-            <h2>Box 5</h2>
-            <p>service </p>
-        </div>
-        <div class="box box6">
-            <h2>Box 6</h2>
-            <p>service </p>
-        </div>
-    </section>
-<hr>
     <section class="scrollable-section">
         <h1 class="section-heading">PATIENT FEEDBACKS</h1>
         <div class="scrollable-container">
@@ -233,49 +210,25 @@
             </section>
              
           <div class="ContactUs" id="CONTACTUS">
-            <div > <img src="static/contactusback.png" class="contactbackground" /></div>
-            <div class="contactelements">
-            <h1 class="right-h1">CONTACT US</h1>
-            <form>      
-                <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-                <input name="email" type="text" class="feedback-input" placeholder="Email" />
-                <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
-                <input type="submit" value="SUBMIT"/>
-              </form>
-              </div>
-        </div>
+    <div>
+        <img src="{% static 'contactusback.png' %}" class="contactbackground" />
+    </div>
+    <div class="contactelements">
+        <h1 class="right-h1">CONTACT US</h1>
+        <form method="POST" action="{% url 'contact_us' %}">
+            {% csrf_token %}
+            <input name="name" type="text" class="feedback-input" placeholder="Name" required />
+            <input name="email" type="email" class="feedback-input" placeholder="Email" required />
+            <textarea name="text" class="feedback-input" placeholder="Comment" required></textarea>
+            <input type="submit" value="SUBMIT" />
+        </form>
+    </div>
+</div>
 
-    <footer id="footer">
-        <div>
-            © 2024 Medix Healthcare Ltd. All Rights Reserved.
-        </div>
-        <div class="right-content">
-            <a href="#"> <img src="static/G2.png" alt="Gmail" width="32" height="32"> </a>
-        </div>
-        <span id="current-time"></span> <!-- This is where the time will be displayed -->
-    </footer>
- 
-
-    <script>
-        //scripting for the footer time here because it is only working as inline
-         function updateTime() {
-        const now = new Date();
-        let hours = now.getHours();
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const ampm = hours >= 12 ? 'PM' : 'AM';
         
-        // Convert to 12-hour format
-        hours = hours % 12;
-        hours = hours ? hours : 12; // Convert hour '0' to '12'
-        
-        const timeString = `${hours}:${minutes} ${ampm}`;
-        document.getElementById('current-time').textContent = timeString;
-    }
 
-    // Update time immediately and then every second
-    updateTime();
-    setInterval(updateTime, 1000);
-    </script>
+
+{% include 'footer.html' %}
 
 </body>
 </html>

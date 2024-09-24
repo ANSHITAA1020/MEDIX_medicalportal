@@ -2,6 +2,11 @@
 html {
     scroll-behavior: smooth;
   }
+
+  a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color from parent element */
+}
   
             body {
                 font-family: 'Roboto', sans-serif;
@@ -27,7 +32,7 @@ html {
             
             
             marquee {
-            font-size: 12px;
+            font-size: 15px;
             color: #0ff;
             padding: 1px;
             background: linear-gradient(90deg, #00101e, #010169);           
@@ -146,7 +151,7 @@ html {
             }
             
             .user-button {
-                background-color: #e4431e; /* Green */
+                background-color: #536dfe; 
                 color: white;
                 padding: 10px 20px;
                 border: none;
@@ -160,7 +165,7 @@ html {
             }
             
             .user-button:hover {
-                background-color: #7a1505; /* Darker green */
+                background-color: #7100a9; /* Darker green */
             }
             
             .dropdown-content {
@@ -527,8 +532,8 @@ box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255,
         }
  .heading-gridcontainer h1 {
     font-family: 'Montserrat', cursive; /* Use the Montserrat font */
-    font-size: 3em; /* Adjust font size as needed */
-    background: linear-gradient(to right, #3a49d17d, #733e96); /* Gradient color */
+    font-size: 2.5em; /* Adjust font size as needed */
+    background: rgba(255, 255, 255, 0.548); /* Gradient color */
     background-clip: text;  /* Clip background to text */
     -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
     display: inline; /* Ensure the gradient is applied inline */
@@ -543,11 +548,36 @@ box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255,
     gap: 30px;
     margin-bottom: 30px;
 }
+.grid-container2 {
+    display: grid;
+    justify-content: center;
+    width: 96%;
+    padding-left: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+}
+.box-content {
+    display: flex;
+    align-items: center;
+}
+
+.box-image {
+    max-width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 15px;
+}
+
+.box-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .box {
-
+padding-top: 10px;
+padding-bottom: 5px;
 color: #fff ;
-text-transform: uppercase;
 text-decoration: none;
 background: rgb(37, 0, 86);
 padding: 20px;
@@ -572,7 +602,6 @@ transition: all 0.4s ease 0s;
 .scrollable-section {
     background-color: #00101e;
     padding-bottom: 50px;
-    padding-top: 10px;
     text-align: center;
     overflow: hidden;
 }
@@ -743,3 +772,104 @@ footer {
            font-weight:700;
          }
          [type="submit"]:hover { background :#232f4f;}
+
+
+
+         /*     logout Popup overlay     */
+.popupOverlay {
+                padding-top: 250px;
+                padding-left: 450px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000; /* Ensure it's on top */
+                display: none; /* Hidden by default */
+}
+
+/* Popup content */
+.popupContent {
+                box-shadow: 0 10px 900px rgba(50, 238, 255, 0.755);
+                justify-content: center;
+                justify-items: center;
+                background-color:rgb(53, 1, 138);
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+                width: 60%; /* Width of the popup */
+               
+            }
+
+/* Close button */
+.closePopup {
+    color: #fff9f9;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.closePopup:hover, .closePopup:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Button styles */
+.popupContent button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popupContent button:nth-of-type(1) {
+    background-color: #ccc;
+}
+
+.popupContent button:nth-of-type(2) {
+    background-color: #f44336; /* Red color for the "Yes" button */
+    color: white;
+}
+
+
+/*  Health Metrics Section */
+#health-metrics-container {
+    background-color: #d9042785;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 500px;
+    box-sizing: border-box;
+}
+
+.health-metric-box {
+    height: 380px;
+    width: 400px;
+    justify-content: center;
+    justify-items: center;
+    background-color: #39000a85;
+    flex: 1;
+    padding-top: 25px;
+    margin: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.health-metric-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 100px #d90427;
+}
+
+.red-background {
+    background-color: #d9042785;
+}
+
+

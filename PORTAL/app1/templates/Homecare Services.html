@@ -1,0 +1,78 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homecare Services</title>
+    <style>
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            margin-top: 150px;
+            margin-bottom: 60px;
+        }
+        .container {
+            background-color: rgba(37, 0, 96, 0.749);
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin: 20px;
+        }
+        .container img {
+            height: auto;
+            border-radius: 8px;
+            margin-right: 50px;
+        }
+        .container .text {
+            color: rgb(255, 255, 255);
+            max-width: 60%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .container .text {
+                max-width: 100%;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Homecare Services</h1>
+    <img src="{% static 'ambulance.png' %}" alt="Ambulance" style="width: 800px; height: 400px;">
+    <div class="text">
+        <h2 style="color: rgb(113, 198, 221);">We make healthcare accessible right from your home with our comprehensive homecare services:</h2><hr>
+        <p>
+            <h4 style="color: rgb(255, 153, 153);">+ &nbsp; Home-to-Home Ambulance:</h4>
+            Our ambulances are available daily from 8 AM to 3 AM, equipped with modern medical tools and trained staff to ensure fast, reliable service.<hr>
+            <h4 style="color: rgb(255, 153, 153);">+ &nbsp; Skilled Medical Staff:</h4>
+            Our doctors, nurses, and paramedics provide personalized care at home, covering post-surgery recovery, chronic illness management, and more.<hr>
+            <h4 style="color: rgb(255, 153, 153);">+ &nbsp; Quick Response:</h4>
+            In emergencies, our team responds swiftly to ensure you receive timely medical care.<hr>
+            <h4 style="color: rgb(255, 153, 153);">+ &nbsp; Emergency Number:</h4>
+            Contact us at <i style="color: rgb(255, 237, 117);">9999-000-000</i>, and our team will be there to assist you.<hr>
+        </p>
+    </div>
+</div>
+
+
+
+
+{% include 'footer.html' %}
+
+</body>
+</html>

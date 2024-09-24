@@ -21,4 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('app1.urls')),
     path('accounts/', include('allauth.urls')),
+    # path('medix/',include('medix_chatbot.urls')),
+
+
 ]

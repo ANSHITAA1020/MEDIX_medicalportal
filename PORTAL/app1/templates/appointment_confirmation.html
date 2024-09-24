@@ -1,0 +1,107 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Appointment</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #060B43, #070A3F);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #00ffcc;
+        }
+
+        .appointment-details {
+            margin-bottom: 20px;
+        }
+
+        .appointment-details p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .appointment-details strong {
+            color: #00ffcc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: rgba(6, 6, 6, 0.792);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Appointment Confirmation</h1>
+
+        <div class="appointment-details">
+            <p><strong>Patient Name:</strong> {{ appointment.patient_name }}</p>
+            <p><strong>Email:</strong> {{ appointment.email }}</p>
+            <p><strong>Phone Number:</strong> {{ appointment.phone_number }}</p>
+            <p><strong>Department:</strong> {{ appointment.doctor.department.name }}</p>
+            <p><strong>Doctor:</strong> {{ appointment.doctor.name }}</p>
+            <p><strong>Date:</strong> {{ appointment.date }}</p>
+            <p><strong>Time Slot:</strong> {{ appointment.time_slot }}</p>
+            <p><strong>Street Address:</strong> {{ appointment.street_address }}</p>
+            <p><strong>City:</strong> {{ appointment.city }}</p>
+            <p><strong>State:</strong> {{ appointment.state }}</p>
+            <p><strong>Postal Code:</strong> {{ appointment.postal_code }}</p>
+        </div>
+
+        <button onclick="window.location.href='{% url 'home' %}'">Go to Home</button>
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+</html>

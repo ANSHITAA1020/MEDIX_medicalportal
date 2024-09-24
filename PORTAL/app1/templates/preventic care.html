@@ -1,0 +1,108 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventive Care</title>
+    <style>
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 2100px;
+            margin: auto;
+            padding: 25px;
+            padding-top: 150px;
+        }
+        .section {
+            background-color: rgba(37, 0, 96, 0.749);
+            display: flex;
+            color: #f4f4f4;
+            align-items: center;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .section img {
+            width: 50%;
+            height: auto;
+        }
+        .text {
+            padding: 20px;
+            flex: 1;
+            font-size: larger;
+        }
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            .section img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="container">
+    <h1 style="color: rgb(255, 255, 255); text-align: center;">PREVENTIVE CARE</h1><hr>
+    <div class="section">
+        <img src="{% static 'Vaccinations and Immunizations.webp' %}" alt="Vaccinations and Immunizations">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Vaccinations and Immunizations</h2><br>
+            <p>- We are dedicated to ensuring the health and well-being of our community through comprehensive vaccinations and immunizations.<br>- Our clinic offers a wide range of essential vaccines, including those for influenza, measles, mumps, rubella and important vaccines like Hepatitis B, Oral Polio Vaccine, BCG, Tetanus, COVID-19 and more.<br>- We prioritize preventive care by providing up-to-date immunizations for all age groups, from infants to adults.<br>- Our experienced healthcare professionals are here to guide you through the vaccination process, answer any questions you may have, and ensure you and your family stay protected against preventable diseases.</p>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Basic Vision and Hearing Tests</h2><br>
+            <p>- As part of our dedication to early detection and preventive care, we offer basic vision and hearing tests at our clinics.<br>- These essential tests help us identify potential issues and ensure that you receive the timely care you need.<br>- Our team of skilled professionals uses state-of-the-art equipment to perform these tests in a comfortable and supportive environment.<br>- Regular vision and hearing assessments are crucial for maintaining overall health, and we strive to make these services accessible to everyone in our community.</p>
+        </div>
+        <img src="{% static 'vision.jpg' %}" alt="Vision and Hearing Tests">
+    </div>
+
+    
+    <div class="section">
+        <img src="{% static 'blood-sugar-test.jpg' %}" alt="Blood Sugar Testing">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Blood Sugar Testing</h2><br>
+            <p>- We offer Basic Blood Glucose Testing to help you monitor and manage your blood sugar levels effectively.<br>- This simple and vital test is designed to provide accurate and timely information about your glucose levels, allowing for early detection and management of potential health concerns.<br>- Our dedicated team of healthcare professionals is committed to delivering high-quality care and ensuring that you receive the best possible support for maintaining your health.</p>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Blood Pressure Monitoring</h2><br>
+            <p>- We prioritize your health and well-being with our comprehensive range of diagnostic services.<br>- One of our key offerings is Basic Blood Pressure Monitoring.<br>- This essential service allows us to regularly check and record your blood pressure levels, ensuring that any potential issues are detected early.<br>- Our state-of-the-art equipment and experienced healthcare professionals work together to provide accurate measurements and personalized advice.<br>- Whether you're managing a chronic condition or just aiming to maintain optimal health, our blood pressure monitoring service is a crucial component of your ongoing care.</p>
+        </div>
+        <img src="{% static 'Blood-Pressure-.jpg' %}" alt="Blood Pressure Monitoring">
+    </div>
+
+    
+    <div class="section">
+        <img src="{% static 'rregular.jpg' %}" alt="Routine Physical Examinations">
+        <div class="text">
+            <h2 style="color: rgb(108, 168, 220);">Routine Physical Examinations</h2><br>
+            <p>- We are committed to ensuring your health and well-being through comprehensive routine physical examinations.<br>- Our clinics provide a range of basic examinations designed to assess your overall health and detect any potential issues early.<br>- These routine check-ups include measurements of vital signs, assessment of general physical condition, and targeted evaluations based on your specific health needs.<br>- By offering these essential services, we aim to promote preventative care and support you in maintaining a healthy lifestyle.</p>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+
+
+</body>
+</html>

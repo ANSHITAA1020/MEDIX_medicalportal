@@ -1,69 +1,66 @@
 {% load static %}
+
 <header>
     <nav class="navbar"> 
         <img src="{% static 'logo.png' %}" alt="Logo" class="logo">
         <ul>
-            <li><a href="homepage.html">Home</a></li>
-            <li><a href="#" id="aboutUsBtn" class="about-btn">About Us</a></li>
-            <li class="ddropdown"><a href="#">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about_us' %}">About Us</a></li>
+            <li class="ddropdown"><a href="{% url 'doctor-list' %}">
                 Departments</a>
                 </button>
                 <div class="ddropdown-content">
-                  <a href="Orthopedic Doctor.html">&nbsp;Orthopedic Doctor&nbsp;</a>
-                  <a href="ENT Specialist.html">&nbsp;ENT Specialist&nbsp;</a>
-                  <a href="Dermatologist.html">&nbsp;Dermatologist&nbsp;</a>
-                  <a href="General Practitioner.html">&nbsp;General Practitioner&nbsp;</a>
-                  <a href="Pediatrician.html">&nbsp;Pediatrician&nbsp;</a>
-                  <a href="Gynecologist.html">&nbsp;Gynecologist&nbsp;</a>
-                
-              </div>
+                    <a href="{% url 'orthopedic_doctor' %}">&nbsp;Orthopaedics&nbsp;</a>
+                    <a href="{% url 'ent_specialist' %}">&nbsp;ENT &nbsp;</a>
+                    <a href="{% url 'dermatologist' %}">&nbsp;Dermatology&nbsp;</a>
+                    <a href="{% url 'general_practitioner' %}">&nbsp;General Practice&nbsp;</a>
+                    <a href="{% url 'pediatrician' %}">&nbsp;Pediatrics&nbsp;</a>
+                    <a href="{% url 'gynecologist2' %}">&nbsp;Gynecology&nbsp;</a>
+                  
+                </div>
                   </li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Book Appointment</a></li>
-            <li><a href="#">Articles</a></li>  
-            <li><a href="homepage.html#CONTACTUS">Contact Us</a></li>    
+            <li><a href="{% url 'fetch_news' %}">News</a></li>
+            <li><a href="{% url 'book_appointment' %}">Book Appointment</a></li>
+            <li><a href="{% url 'home' %}#health-metrics">Health Metrics</a></li> 
+            <li><a href="{% url 'blog_list' %}">Articles</a></li>     
+            <li><a href="{% url 'chat_with_medix' %}">Chat with Medix</a></li>    
         </ul>
     </nav>
-    <div class="user-dropdown">
-        <button class="user-button" onclick="toggleDropdown()">
-            <img src="/static/usericon.png" width="25" height="20" style="padding-left: 0.5px; padding-right: 5px;">
-            User
-        </button>
-        <div class="dropdown-content" id="dropdownMenu">
-            <a href="#profile">Profile</a>
-            <a href="#settings">Settings</a>
-            <a href="#logout">Logout</a>
-        </div>
+  
+
+<div class="user-dropdown">
+    <button class="user-button" onclick="toggleDropdown()">
+        <img src="{% static 'usericon.png' %}" width="25" height="20" style="padding-left: 0.5px; padding-right: 5px;">
+        {{ user.get_full_name|default:user.username }}
+    </button>
+    <div class="dropdown-content" id="dropdownMenu">
+        <a href="{% url 'view_profile' user.id %}">Profile</a>
+        <a href="{% url 'logout' %}" id="logoutbtn" class="logout-btn" onclick="showLogoutPopup()">Logout</a>
     </div>
-      <!-- Popup structure for About Us -->
-      <div id="aboutPopup" class="popupAbt">
-        <div class="popupAbt-content">
-            <span class="close">&times;</span>
-            <h1>About Medix</h1><p>
-            <h4>Revolutionizing Healthcare Access and Efficiency</h4><br>
-                At Medix, we are dedicated to transforming the way clinics in India operate by eliminating outdated manual processes. Our goal is to enhance patient care, streamline administrative tasks, and create a seamless healthcare experience for everyone.<br>
-            <h4>The Problem: Outdated Systems in Healthcare</h4><br>
-                Many clinics across India still rely on manual processes, which lead to inefficiencies that affect both patients and clinic staff. These traditional methods delay access to care, increase the risk of medical errors, and limit patient autonomy over their own health information.<br>
-            <h4>Why Choose Medix?</h4><br>
-            <h7>Innovative Technology: </h7>We leverage cutting-edge technology to create a seamless healthcare experience for both patients and providers.<br>
-            <h7>Patient-Centric Approach:</h7>Our solutions are designed with the patient in mind, ensuring easy access to healthcare information and services.<br>
-            <h7>Streamlined Operations:</h7>By digitizing administrative tasks, we enable clinics to focus on what matters most—patient care.<br>
-            <h4>Join Us in Revolutionizing Healthcare</h4><br>
-            At Medix, we believe that every patient deserves timely and accurate healthcare. Join us on our mission to enhance the healthcare experience in India through innovation and technology. This structure not only highlights the key issues and solutions but also presents your company as a forward-thinking leader in the healthcare sector.<br>
-                   
-            </p>
-        </div>
+</div>
+
+
+       <!-- Logout Confirmation Popup -->
+<div id="logoutConfirmation" class="popupOverlay">
+    <div class="popupContent">
+        <span class="closePopup" onclick="closeLogoutConfirmation()">&times;</span>
+        <h2>Are you sure you want to logout?</h2>
+        <button onclick="closeLogoutConfirmation()">Cancel</button>
+        <button onclick="window.location.href='logout.html'">Yes</button>
     </div>
+</div>
+
 </header>
+
+
+    
 
 <style>
   hr {
-            border: none; /* Remove the default border */
-            /*height: 1px; /* Set thickness */
-            /*background-color: #ffffff; /* Set color */
-            margin: 15px; /* Set margin */
-            width: 100%; /* Set width */
-            margin-left: auto; /* Center the line */
+            border: none; 
+            margin: 15px;
+            width: 100%; 
+            margin-left: auto; 
             margin-right: auto;
             position: relative;
         }
@@ -72,7 +69,6 @@
             width: 100%;
             height: 100%;
             display: block;
-            /* Remove the default margins */
             margin: 0;
             padding: 0;
         }
@@ -86,29 +82,29 @@
         position: fixed;   
         top: 0;
         left: 0;
-        width: 100%; /* Full width */
+        width: 100%; 
         padding: 20px;
         text-align: center;
-        background-color: rgba(17, 17, 17, 0.7); /* Semi-transparent dark background */
-        backdrop-filter: blur(10px); /* Apply blur effect */
-        z-index: 1000; /* Ensure it stays on top of other content */
-        height: 130px; /* Height of the header */
+        background-color: rgba(17, 17, 17, 0.7);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        height: 130px;
     }
     
             
             
             .logo {
-            width: 190px; /* Set a fixed width */
-            height: 50px; /* Maintain aspect ratio */
-            display: block; /* Ensure it behaves like a block element */
-            margin: 0 auto; /* Center the logo horizontally */
+            width: 190px; 
+            height: 50px;
+            display: block;
+            margin: 0 auto;
             margin-bottom: 20px;
             }
             
-            /*drop down navigation bar*/
+          
           
               
-              /* Dropdown button */
+              
               .ddropdown .dropbtn {
                 font-size: 16px;
                 box-shadow: 10px 10px 10px 10px rgb(0, 0, 0);
@@ -116,16 +112,15 @@
                 color: white;
                 padding: 14px 16px;
                 background-color: inherit;
-                font-family: inherit; /* Important for vertical align on mobile phones */
-                margin: 0; /* Important for vertical align on mobile phones */
+                font-family: inherit; 
+                margin: 0;
               }
               
-              /* Add a red background color to navbar links on hover */
               .navbar a:hover, .ddropdown:hover .ddropbtn {
                 background-color: #33A1BC;
               }
               
-              /* Dropdown content (hidden by default) */
+
               .ddropdown-content {
                 margin-top: 10px;
                 display: none;
@@ -137,7 +132,7 @@
                 z-index: 1;
               }
               
-              /* Links inside the dropdown */
+             
               .ddropdown-content a {
                 float: none;
                 color: black;
@@ -147,27 +142,26 @@
                 text-align: left;
               }
               
-              /* Add a grey background color to dropdown links on hover */
+              
               .ddropdown-content a:hover {
                 background-color: #ddd;
               }
               
-              /* Show the dropdown menu on hover */
+              
               .ddropdown:hover .ddropdown-content {
                 display: block;
               }        
-            /* dropdown user profile*/
+           
             .user-dropdown {
                 position: relative;
                 display: inline-block;
-                /* Float the dropdown to the right */
-                position: absolute; /* Position dropdown absolutely */
-                right: 30px; /* Align to the right with some margin */
-                top: 45px; /* Align vertically */
+                position: absolute;
+                right: 30px;
+                top: 45px; 
             }
             
             .user-button {
-                background-color: #e4431e; /* Green */
+                background-color: #536dfe; 
                 color: white;
                 padding: 10px 20px;
                 border: none;
@@ -181,19 +175,19 @@
             }
             
             .user-button:hover {
-                background-color: #7a1505; /* Darker green */
+                background-color: #7100a9; 
             }
             
             .dropdown-content {
-                display: none; /* Hidden by default */
+                display: none; 
                 position: absolute;
-                background-color: #444; /* Light grey */
+                background-color: #444; 
                 min-width: 160px;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                 z-index: 1;
-                right: 0; /* Align dropdown to the right */
-                overflow: auto; /* Add scrollbar if needed */
-                max-height: calc(100vh - 60px); /* Set max height to viewport height minus header height */
+                right: 0;
+                overflow: auto; 
+                max-height: calc(100vh - 60px); 
             }
             
             .dropdown-content a {
@@ -204,33 +198,32 @@
             }
             
             .dropdown-content a:hover {
-                background-color: #33A1BC;  /* Light grey on hover */
+                background-color: #33A1BC;  
             }
             
-            /* Show class for dropdown */
             .dropdown-content.show {
                 display:block;
             }
             
             .nav-container {
                 display: flex;
-                justify-content: center; /* Center the buttons */
-                margin: 100px 0; /* Add some space above and below */
+                justify-content: center; 
+                margin: 100px 0; 
             }
             
             .nav-button {
-                background-color: #777777; /* Grey background */
-                color: #ffffff; /* White text color */
+                background-color: #777777;
+                color: #ffffff; 
                 border: none;
                 border-radius: 20px;
                 padding: 15px 30px;
-                margin: 0 10px; /* Space between buttons */
+                margin: 0 10px; 
                 cursor: pointer;
-                transition: background-color 0.3s; /* Smooth transition for hover effect */
+                transition: background-color 0.3s;
             }
             
             .nav-button:hover {
-                background-color: #555555; /* Darker grey on hover */
+                background-color: #555555; 
             }
             
             .navbar ul {
@@ -238,11 +231,11 @@
                 margin: 0;
                 padding: 0;
                 display: flex;
-                justify-content: center; /* Center the items */
+                justify-content: center; 
             }
             
             .navbar li {
-                margin: 0 15px; /* Space between items */
+                margin: 0 15px; 
             }
             
             .navbar a {
@@ -255,8 +248,8 @@
             }
             
             .navbar a:hover {
-                background-color: #33A1BC; /* Change background on hover */
-                color: #333; /* Change text color on hover */
+                background-color: #33A1BC; 
+                color: #333; 
             }
             
             .modal {
@@ -302,58 +295,22 @@
                 margin: 0;
                 padding: 0;
             }
-                      
-            /* pop up about me section*/
-            .popupAbt {
-                padding-top: 100px;
-                position: fixed;
-                top: 0;
-                padding-left: 30px;
-                padding-right: 30px;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
-                border: #f7fbff;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                backdrop-filter: blur(5px); /* Blur effect */
-                z-index: 1000; /* Ensure it's on top */
-                display: none; /* Hidden by default */
-            }
+       
+
             
-            .popupAbt-content {
-                background-color:#3a3b3c;
-                color:white;
-                border: 1px solid #828282; /* Dark blue border */
-                padding: 40px;
-                border-radius: 10px;
-                text-align: center;
-                 /* Maximum width */
-            }
-
-            .about-btn {
-                color: #fffafa;            
-                border: 1px solid #536DFE; /* Dark blue outline */
-                border-radius: 100%; /* Rounded corners */
-                transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
-            }
-    
-
-            /*pop up of medix video in first */
             .popup {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+                background-color: rgba(0, 0, 0, 0.8); 
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                backdrop-filter: blur(5px); /* Blur effect */
-                z-index: 1000; /* Ensure it's on top */
-                display: flex; /* Initially show the popup */
+                backdrop-filter: blur(5px); 
+                z-index: 1000; 
+                display: flex; 
             }
             
             .popup-content {
@@ -361,14 +318,14 @@
                 padding: 40px;
                 border-radius: 10px;
                 text-align: center;
-                width: 70%; /* Width of the popup */
-                max-width: 600px; /* Maximum width */
+                width: 70%;
+                max-width: 600px; 
             }
             
             .meds-button {
                 font-size: 15px;
-                background-color: #00ffff; /* Neon blue button */
-                color: #000000; /* Black text for button */
+                background-color: #00ffff; 
+                color: #000000; 
                 border: none;
                 border-radius: 30px;
                 padding: 20px 40px;
@@ -377,43 +334,43 @@
             }
             
             .meds-button:hover {
-                background-color: #00cccc; /* Darker blue on hover */
+                background-color: #00cccc;
             }
             
             .main-content {
-                filter: blur(5px); /* Blur effect */
-                transition: filter 0.3s; /* Smooth transition */
+                filter: blur(5px); 
+                transition: filter 0.3s; 
             }
             .section {
                 opacity: 1;
-                transition: opacity 0.5s ease-in-out; /* Transition effect for opacity */
+                transition: opacity 0.5s ease-in-out;
             }
             
             .hidden {
-                opacity: 0; /* Hidden state */
-                pointer-events: none; /* Prevent interaction when hidden */
+                opacity: 0; 
+                pointer-events: none; 
             }
             
             
             .nav-container {
                 display: flex;
-                justify-content: center; /* Center the buttons */
-                margin: 100px 0; /* Add some space above and below */
+                justify-content: center; 
+                margin: 100px 0; 
             }
             
             .nav-button {
-                background-color: #777777; /* Grey background */
-                color: #ffffff; /* White text color */
+                background-color: #777777; 
+                color: #ffffff;
                 border: none;
                 border-radius: 20px;
                 padding: 15px 30px;
-                margin: 0 10px; /* Space between buttons */
+                margin: 0 10px; 
                 cursor: pointer;
-                transition: background-color 0.3s; /* Smooth transition for hover effect */
+                transition: background-color 0.3s; 
             }
             
             .nav-button:hover {
-                background-color: #555555; /* Darker grey on hover */
+                background-color: #555555; 
             }
             
             .navbar ul {
@@ -421,12 +378,12 @@
                 margin: 0;
                 padding: 0;
                 display: flex;
-                justify-content: center; /* Center the items */
+                justify-content: center;
                 
             }
             
             .navbar li {
-                margin: 0 15px; /* Space between items */
+                margin: 0 15px;
             }
             
             .navbar a {
@@ -439,81 +396,97 @@
             }
             
             .navbar a:hover {
-                background-color: #00ffcc; /* Change background on hover */
-                color: #333; /* Change text color on hover */
+                background-color: #00ffcc; 
+                color: #333; 
             }
+
+            
+         
+         .popupOverlay {
+                padding-top: 250px;
+                padding-left: 450px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000; 
+                display: none; 
+}
+
+
+.popupContent {
+                box-shadow: 0 10px 900px rgba(50, 238, 255, 0.755);
+                justify-content: center;
+                justify-items: center;
+                background-color:rgb(53, 1, 138);
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+                width: 60%; 
+               
+            }
+
+
+.closePopup {
+    color: #fff9f9;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.closePopup:hover, .closePopup:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.popupContent button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popupContent button:nth-of-type(1) {
+    background-color: #ccc;
+}
+
+.popupContent button:nth-of-type(2) {
+    background-color: #f44336; 
+    color: white;
+}
 </style>
 
 <script>
-    function togglePopup() {
-    const popupSection = document.getElementById('popup-section');
-    popupSection.classList.toggle('active'); // Toggle the active class
-
-    // Optionally, you can also blur the main content when the popup is active
-    const mainContent = document.getElementById('main-content');
-    if (popupSection.classList.contains('active')) {
-        mainContent.style.filter = 'blur(5px)'; // Apply blur effect
-    } else {
-        mainContent.style.filter = 'none'; // Remove blur effect
-    }
-}
-           // ABOUT ME SECTION POPUP 
-           document.addEventListener('DOMContentLoaded', function() {
-            const aboutBtn = document.getElementById('aboutUsBtn');
-            const aboutPopup = document.getElementById('aboutPopup');
-            const closeBtn = document.querySelector('.close');
-    
-            // Function to open the popup
-            function openPopup() {
-                aboutPopup.style.display = 'block';
-            }
-    
-            // Function to close the popup
-            function closePopup() {
-                aboutPopup.style.display = 'none';
-            }
-    
-            // Open the popup when "About Us" is clicked
-            aboutBtn.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                openPopup();
-            });
-    
-            // Close the popup when the close button is clicked
-            closeBtn.addEventListener('click', function() {
-                closePopup();
-            });
-    
-            // Close the popup if the user clicks outside the popup content
-            window.addEventListener('click', function(event) {
-                if (event.target == aboutPopup) {
-                    closePopup();
-                }
-            });
-        });
+   
+        
        //dropdown menu for DEPARTMENTS
         document.addEventListener('DOMContentLoaded', function () {
             var dropdownToggle = document.querySelector('.dropdown-toggle');
             var dropdownMenu = document.querySelector('.dropdown-menu');
         
             dropdownToggle.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent the default action of the anchor
+                event.preventDefault();
                 dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
             });
         
-            // Optional: Close the dropdown when clicking outside of it
+    
             window.addEventListener('click', function (event) {
                 if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
                     dropdownMenu.style.display = 'none';
                 }
             });
         });
-// user profile dropdown
 function toggleDropdown() {
     document.getElementById("dropdownMenu").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
+//Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
     if (!event.target.matches('.user-button')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -526,7 +499,7 @@ window.onclick = function(event) {
     }
 }
 
-// Add CSS for the show class
+
 const style = document.createElement('style');
 style.innerHTML = `
     .dropdown-content.show {
@@ -536,21 +509,17 @@ style.innerHTML = `
 document.head.appendChild(style);
   
 
-//meds video in popup
+
 function goToChatbot() {
-    // Get the video element
-    var video = document.getElementById('popupVideo');
     
-    // Pause the video when the button is pressed
+    var video = document.getElementById('popupVideo');
     video.pause();
 
-    // Optionally, navigate to a different page or perform other actions here
-    // window.location.href = "your-chatbot-url.html";
 }
 
 function goToChatbot() {
-    document.getElementById('popup').style.display = 'none'; // Hide the popup
-    document.getElementById('main-content').style.filter = 'none'; // Remove blur effect
+    document.getElementById('popup').style.display = 'none'; 
+    document.getElementById('main-content').style.filter = 'none'; 
     }
 
     function updateTime() {
@@ -559,24 +528,24 @@ function goToChatbot() {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const ampm = hours >= 12 ? 'PM' : 'AM';
     
-    // Convert to 12-hour format
+    
     hours = hours % 12;
-    hours = hours ? hours : 12; // Convert hour '0' to '12'
+    hours = hours ? hours : 12; 
     
     const timeString = `${hours}:${minutes} ${ampm}`;
     document.getElementById('current-time').textContent = timeString;
 }
 
-// Update time immediately and then every second
+
 updateTime();
 setInterval(updateTime, 1000);
 
-// section which is scrollinng in loop
+
 const container = document.querySelector('.scrollable-container');
 let isMouseDown = false;
 
 let startX, scrollLeft;
-/* Review Section Styling */
+
 
 
 </script>

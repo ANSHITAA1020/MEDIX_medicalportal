@@ -10,40 +10,6 @@ function togglePopup() {
         mainContent.style.filter = 'none'; // Remove blur effect
     }
 }
-           // ABOUT ME SECTION POPUP 
-           document.addEventListener('DOMContentLoaded', function() {
-            const aboutBtn = document.getElementById('aboutUsBtn');
-            const aboutPopup = document.getElementById('aboutPopup');
-            const closeBtn = document.querySelector('.close');
-    
-            // Function to open the popup
-            function openPopup() {
-                aboutPopup.style.display = 'block';
-            }
-    
-            // Function to close the popup
-            function closePopup() {
-                aboutPopup.style.display = 'none';
-            }
-    
-            // Open the popup when "About Us" is clicked
-            aboutBtn.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                openPopup();
-            });
-    
-            // Close the popup when the close button is clicked
-            closeBtn.addEventListener('click', function() {
-                closePopup();
-            });
-    
-            // Close the popup if the user clicks outside the popup content
-            window.addEventListener('click', function(event) {
-                if (event.target == aboutPopup) {
-                    closePopup();
-                }
-            });
-        });
        //dropdown menu for DEPARTMENTS
         document.addEventListener('DOMContentLoaded', function () {
             var dropdownToggle = document.querySelector('.dropdown-toggle');
@@ -130,4 +96,22 @@ let isMouseDown = false;
 
 let startX, scrollLeft;
 /* Review Section Styling */
+  
 
+
+/*       logut      */
+function showLogoutPopup() {
+    document.getElementById('logoutConfirmation').style.display = 'block';
+}
+
+function closeLogoutConfirmation() {
+    document.getElementById('logoutConfirmation').style.display = 'none';
+}
+
+// Optional: Close the popup if the user clicks outside of it
+window.onclick = function(event) {
+    var popup = document.getElementById('logoutConfirmation');
+    if (event.target == popup) {
+        closeLogoutConfirmation();
+    }
+}

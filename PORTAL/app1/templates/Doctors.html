@@ -1,0 +1,203 @@
+{% load static %}
+
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors</title>
+    <br>
+    <br>
+    <style>
+        h3 {
+            color: #022c53; 
+        }
+
+        .flex-image {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain; 
+            margin-bottom: 10px;
+            margin-top: 10px; 
+        }
+
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 150px;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .scrollable-section {
+            padding-bottom: 50px;
+            padding-top: 10px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .section-heading {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #f3eded;
+        }
+
+        .scrollable-container {
+            color: #060404;
+            display: flex;
+            gap: 10px;
+            width: calc(60% + 20px);
+            animation: scroll 20s linear infinite;
+            justify-content: center;
+        }
+
+        .flex-box {
+            background : radial-gradient(circle, #bbbbbbd4, #5b5b5bcd); 
+            padding: 20px;
+            margin: 10px;
+            flex: 0 0 30%;
+            height: 380px;
+            width: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 6px 5px 12px rgba(0, 0, 0, 0.578);
+            background-color: rgb(89, 104, 116);
+            font-size: 20px;
+            transition: transform 0.2s ease; 
+            text-decoration: none; 
+            color: inherit; 
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .scrollable-container:hover {
+            animation-play-state: paused; 
+        }
+
+        .flex-box:hover {
+            transform: scale(1.1); 
+        }
+    </style>
+</head>
+<body>
+    
+<br>
+<br>
+    <section class="scrollable-section">
+        <h1 class="section-heading">OUR DOCTORS</h1>
+        <div class="scrollable-container">
+            <a href="{% url 'ent_specialist' %}" class="flex-box">
+                <img src="{% static 'ENT Specialist.png' %}" alt="ENT Specialist" class="flex-image">
+                <h3>Dr. Naresh Gulati</h3>
+                <p>Otolaryngology(ENT)</p>
+            </a>
+
+            <a href="{% url 'dermatologist' %}" class="flex-box">
+              <img src="{% static 'Dermatologist.png' %}" alt="Dermatologist" class="flex-image">
+              <h3>Dr. Vinay Singh</h3>
+              <p>Dermatology</p>
+          </a>
+
+            <a href="{% url 'general_practitioner' %}" class="flex-box">
+              <img src="{% static 'General Practitioner.png' %}" alt="General Practitioner" class="flex-image">
+              <h3>Dr. Amrit Kaur</h3>
+              <p>General Practice</p>
+          </a>
+
+            <a href="{% url 'gynecologist' %}" class="flex-box">
+                <img src="{% static 'Gynecologist.png' %}" alt="Gynecologist" class="flex-image">
+                <h3>Dr. Simran Kaur</h3>
+                <p>Gynecology</p>
+            </a>
+
+            <a href="{% url 'orthopedic_doctor' %}" class="flex-box">
+              <img src="{% static 'Orthopedic Specialist.png' %}" alt="Orthopedic Specialist" class="flex-image">
+              <h3>Dr. Vinod Sharma</h3>
+              <p>Orthopaedics</p>
+          </a>
+
+            <a href="{% url 'pediatrician' %}" class="flex-box">
+                <img src="{% static 'Pediatrician.png' %}" alt="Pediatrician" class="flex-image">
+                <h3>Dr. Mohit Sachdeva</h3>
+                <p>Pediatrics</p>
+            </a>
+
+
+            <a href="{% url 'general_practitioner2' %}" class="flex-box">
+                <img src="{% static 'General Practitioner2.png' %}" alt="General Practitioner" class="flex-image">
+                <h3>Dr. Tania Aggarwal</h3>
+                <p>Family Medicine</p>
+            </a>
+
+            <a href="{% url 'gynecologist2' %}" class="flex-box">
+              <img src="{% static 'Gynecologist2.png' %}" alt="Gynecologist" class="flex-image">
+              <h3>Dr. Akriti</h3>
+              <p>Gynecology</p>
+
+            <a href="{% url 'ent_specialist' %}" class="flex-box">
+                <img src="{% static 'ENT Specialist.png' %}" alt="ENT Specialist" class="flex-image">
+                <h3>Dr. Naresh Gulati</h3>
+                <p>Otolaryngology(ENT)</p>
+            </a>
+
+            <a href="{% url 'dermatologist' %}" class="flex-box">
+              <img src="{% static 'Dermatologist.png' %}" alt="Dermatologist" class="flex-image">
+              <h3>Dr. Vinay Singh</h3>
+              <p>Dermatology</p>
+          </a>
+
+          <a href="{% url 'general_practitioner2' %}" class="flex-box">
+                <img src="{% static 'General Practitioner2.png' %}" alt="General Practitioner" class="flex-image">
+                <h3>Dr. Tania Aggarwal</h3>
+                <p>Family Medicine</p>
+            </a>
+
+          <a href="{% url 'gynecologist' %}" class="flex-box">
+                <img src="{% static 'Gynecologist.png' %}" alt="Gynecologist" class="flex-image">
+                <h3>Dr. Simran Kaur</h3>
+                <p>Gynecology</p>
+            </a>
+
+          <a href="{% url 'orthopedic_doctor' %}" class="flex-box">
+              <img src="{% static 'Orthopedic Specialist.png' %}" alt="Orthopedic Specialist" class="flex-image">
+              <h3>Dr. Vinod Sharma</h3>
+              <p>Orthopaedics</p>
+          </a>
+
+          <a href="{% url 'pediatrician' %}" class="flex-box">
+                <img src="{% static 'Pediatrician.png' %}" alt="Pediatrician" class="flex-image">
+                <h3>Dr. Mohit Sachdeva</h3>
+                <p>Pediatrics</p>
+            </a>
+
+
+          <a href="{% url 'general_practitioner2' %}" class="flex-box">
+                <img src="{% static 'General Practitioner2.png' %}" alt="General Practitioner" class="flex-image">
+                <h3>Dr. Tania Aggarwal</h3>
+                <p>Family Medicine</p>
+            </a>
+
+          <a href="{% url 'gynecologist2' %}" class="flex-box">
+              <img src="{% static 'Gynecologist2.png' %}" alt="Gynecologist" class="flex-image">
+              <h3>Dr. Akriti</h3>
+              <p>Gynecology</p>
+          </a>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+
+</body>
+</html>

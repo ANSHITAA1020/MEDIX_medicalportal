@@ -1,4 +1,6 @@
-{% include 'header.html' %}  <!-- Include the header -->
+{% load static %}
+{% include 'header.html' %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,12 +10,12 @@
     <title>Latest Health News Articles</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;  /* Remove default margin */
-            background: linear-gradient(to right, #060B43, #070A3F);  /* Dark background */
-            color: #ffffff;  /* Light text color */
-            padding-top: 150px;
-            padding-bottom: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("{% static 'back.jpg' %}");;
+            color: #333;
+            margin: 0;
+            padding-top:140px;
+            padding-bottom:70px;
         }
         .heading-container {
     text-align: center;
@@ -22,35 +24,35 @@
 
 .heading-container h1 {
     font-size: 3em;
-    font-weight: bold;  /* Make the text bold */
-    background: linear-gradient(to right, #3a49d1, #733e96);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: bold;  
+    color: white;  
+    
+    background-clip: border-box;  
     display: inline;
-    margin: 0;  /* Remove default margin */
-    padding: 10px 0;  /* Add some padding */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Add a subtle shadow for depth */
-    transition: transform 0.3s ease;  /* Smooth transition for hover effect */
+    margin: 0; 
+    padding: 10px 0;  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
 }
 
 .heading-container h1:hover {
-    transform: scale(1.05);  /* Slightly enlarge the heading on hover */
+    transform: scale(1.05); 
 }
         .article-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);  /* Two articles per row */
+            grid-template-columns: repeat(2, 1fr);  
             grid-gap: 20px;
-            padding: 0 25px;  /* Padding for the container */
+            padding: 0 25px;  
         }
         .article {
-            background-color: #1e1e1e;  /* Dark article background */
-            border-radius: 10px;  /* Rounded corners */
+            background-color: #1e1e1e;
+            border-radius: 10px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             transition: transform 0.3s ease;
         }
         .article:hover {
-            transform: translateY(-5px);  /* Lift effect on hover */
+            transform: translateY(-5px);  
         }
         .article img {
             width: 100%;
@@ -62,19 +64,19 @@
         }
         .article h2 {
             margin-top: 0;
-            color: #ffffff;  /* Ensure the title is white */
-            font-size: 1.5em;  /* Increase title size */
+            color: #ffffff;
+            font-size: 1.5em;  
         }
         .article p {
             margin-bottom: 10px;
-            color: #cccccc;  /* Light gray for description */
+            color: #cccccc;
         }
         .article a {
-            color: #007bff;  /* Link color */
+            color: #007bff;  
             text-decoration: none;
         }
         .article a:hover {
-            text-decoration: underline;  /* Underline on hover */
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -97,6 +99,6 @@
         {% endfor %}
     </div>
 
-    {% include 'footer.html' %}  <!-- Include the footer -->
+    {% include 'footer.html' %}  
 </body>
 </html>

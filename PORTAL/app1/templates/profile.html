@@ -1,0 +1,133 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+<style>
+body {
+    background-image: url("{% static 'back.jpg' %}");
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 150px;
+    background-color: #f4f4f4 ;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9f9;
+    color: #333;
+}
+
+h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 5px;
+}
+
+p {
+    font-size: 18px;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+strong {
+    color: #536dfe;
+}
+
+a.button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+a.button:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<div class="container">
+    <h1>{{ profile.first_name }} {{ profile.last_name }}'s Profile</h1>
+    
+    <p><strong>Email:</strong> {{ profile.email }}</p>
+    <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
+    <p><strong>Address:</strong> {{ profile.street_address }}, {{ profile.city }}, {{ profile.state }} - {{ profile.postal_code }}</p>
+    <p><strong>Date of Birth:</strong> {{ profile.date_of_birth|date:"Y-m-d" }}</p>
+    <p><strong>Blood Group:</strong> {{ profile.blood_group }}</p>
+    <p><strong>Gender:</strong> {{ profile.get_gender_display }}</p>
+    <p><strong>Marital Status:</strong> {{ profile.get_marital_status_display }}</p>
+    
+    {% if profile.profile_picture %}
+        <div style="text-align: center;">
+            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+        </div>
+    {% endif %}
+
+    <h2>Appointments</h2>
+    {% if appointments %}
+        <ul>
+            {% for appointment in appointments %}
+                <li>
+                    <strong>Doctor:</strong> {{ appointment.doctor }}<br>
+                    <strong>Date:</strong> {{ appointment.date }}<br>
+                    <strong>Time:</strong> {{ appointment.time_slot }}<br>
+                    <a href="{% url 'generate_appointment_pdf' appointment.id %}" class="button" target="_blank">Download Confirmation PDF</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No appointments found.</p>
+    {% endif %}
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'edit_profile' profile.id %}" class="button">Edit Profile</a>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'previous_reports' %}" class="button">View Previous Reports</a>
+    </div>
+
+</div>
+
+{% include 'footer.html' %}

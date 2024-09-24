@@ -1,0 +1,80 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutritional Counseling</title>
+    <style>
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            margin-top: 150px;
+            margin-bottom: 60px;
+        }
+        .container {
+            background-color: rgba(37, 0, 96, 0.749);
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin: 20px;
+        }
+        .container img {
+            height: auto;
+            border-radius: 8px;
+            margin-right: 50px;
+        }
+        .container .text {
+            color: rgb(255, 255, 255);
+            max-width: 60%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .container .text {
+                max-width: 100%;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        h4 {
+            color: rgb(204, 159, 204);
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<h1>Nutritional Counseling</h1>
+<div class="container">
+    <img src="{% static 'fruitssssss.png' %}" alt="Nutritional Counseling" style="width: 400px; height: 400px;">
+    <div class="text">
+        <h2 style="color: rgb(113, 198, 221);">Helping individuals lead healthier lives through better food choices and eating habits.</h2><br>
+        <p>Our trained nutritionists provide personalized advice that caters to your unique needs, making it easier to manage and prevent health conditions. Here's what we offer:<hr>
+        <h4>Personalized Diet Plans:</h4>
+        <span>Tailored to your lifestyle, health goals, and medical conditions.</span>
+        <h4>Weight Management Support:</h4>
+        <span>Safe and effective strategies for healthy weight loss or gain.</span>
+        <h4>Chronic Disease Management:</h4>
+        <span>Nutritional guidance for managing diabetes, high blood pressure, and other conditions.</span>
+        <h4>Family Nutrition:</h4>
+        <span>Healthy eating plans for all ages, from children to seniors.</span>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

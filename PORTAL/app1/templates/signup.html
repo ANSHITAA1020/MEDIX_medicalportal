@@ -78,7 +78,7 @@
         .card {
             background-color: #292a2a;
             border-color: #495057;
-            margin: 0; /* Remove margin to use padding instead */
+            margin: 0; 
         }
 
         .btn-dark {
@@ -107,8 +107,8 @@
         }
 
         .padding-section {
-            padding-top: 50px !important; /* Space at the top */
-            padding-bottom: 50px !important; /* Space at the bottom */
+            padding-top: 50px !important; 
+            padding-bottom: 50px !important; 
         }
 
         .logo {
@@ -119,7 +119,7 @@
         }
 
         .logo img {
-            width: 300px; /* Adjust width as needed */
+            width: 300px; 
             height: auto;
         }
     </style>
@@ -138,11 +138,11 @@
                                 <div class="card-body p-4 p-lg-5">
                                     <form method="POST" action="{% url 'signup' %}">
                                         {% csrf_token %}
-                                        <!-- Logo Section with Icon -->
+                                        
                                         <div class="logo mb-4">
                                             <img src="{% static 'logo.png' %}" alt="Logo">
                                         </div>
-                                        <!-- Form Heading -->
+                                        
                                         <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; font-weight: 900;">
                                             Create your account
                                         </h3>

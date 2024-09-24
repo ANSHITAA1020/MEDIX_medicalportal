@@ -1,0 +1,127 @@
+{% include 'header.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blog.title }}</title>
+    <style>
+        body {
+            background-image: url("{% static 'back.jpg' %}");
+    font-family: 'Roboto', sans-serif;
+    
+    color: #ffffff;
+    margin: 0;
+    padding-top: 120px;
+    padding-bottom:30px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px auto;
+    max-width: 2200px;
+    padding: 0 20px;
+}
+
+.main-content {
+    
+    filter: none;
+
+    flex: 2;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.sidebar {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    margin-left: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5)
+;
+}
+
+.main-content h2, .sidebar h3 {
+    color: #FFFFFF;
+}
+
+.main-content img, .sidebar img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.main-content p, .sidebar p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+   
+        <div class="main-content">
+            {% if blog.image %}
+            <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+            {% endif %}
+            <div>{{ blog.content|safe }}</div>
+        </div>
+        <div class="sidebar">
+    <h2>Recent Blogs</h2>
+    <br>
+    <ul>
+        {% for post in other_posts %}
+        <li>
+            <a href="{% url 'blog_detail' post.id %}">
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 10px;">
+                {% endif %}
+                {{ post.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

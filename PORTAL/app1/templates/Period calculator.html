@@ -1,0 +1,144 @@
+{% load static %}
+
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Calculator</title>
+    <style>
+        
+        body {
+            background-image: url("{% static 'back.jpg' %}");;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(37, 0, 96, 0.749);
+            border-radius: 8px;
+            width: 1500px;
+            height: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+
+        }
+        .container img {
+            padding-left: 50px;
+            padding-right: 50px;
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+        
+        }
+        .calculator {
+            padding-right: 60px;
+            padding-left: 75px;
+            width: 50%;
+        }
+
+        h1 {
+            transition: all 0.3s ease; 
+            text-align: center;
+            color:  #b680f8; 
+                    }
+        h4{
+            font-size:15px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background-color:  #7300ff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease; 
+        }
+        button:hover {
+            background-color: #ff6347;
+            transform: scale(1.05); 
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .container h1:hover {
+            transform: scale(1.15);
+        }
+
+    </style>
+</head>
+<body>
+  <div class="container">
+    
+        <div class="calculator">
+            <h1>Period Tracker</h1><hr>
+            <label for="lastPeriodStart">First Day of Your Last Period:</label>
+            <input type="date" id="lastPeriodStart">
+
+            <label for="duration">How long did it last? (in days):</label>
+            <input type="number" id="duration" placeholder="Number of days">
+
+            <label for="cycleLength">Average Length of Cycles (in days):</label>
+            <input type="number" id="cycleLength" placeholder="Number of days">
+
+            <button onclick="calculateNextPeriod()">Calculate Next Period</button>
+
+            <div class="result" id="result"></div><hr>
+            <hr><p><h4>🩸 Use this to estimate the future period days or the most probable ovulation days.</h4></p>
+        </div>
+        
+        <img src="{% static 'period calculator image.png' %}" alt="Period Calculator Image">
+    </div>
+
+<script>
+    function calculateNextPeriod() {
+        const lastPeriodStart = new Date(document.getElementById('lastPeriodStart').value);
+        const duration = parseInt(document.getElementById('duration').value);
+        const cycleLength = parseInt(document.getElementById('cycleLength').value);
+
+        if (lastPeriodStart && !isNaN(duration) && !isNaN(cycleLength) && cycleLength > duration) {
+            // Calculate the end date of the last period
+            const periodEnd = new Date(lastPeriodStart);
+            periodEnd.setDate(periodEnd.getDate() + duration);
+
+            // Calculate the next period start date
+            const nextPeriodStart = new Date(periodEnd);
+            nextPeriodStart.setDate(nextPeriodStart.getDate() + cycleLength);
+
+            document.getElementById('result').innerHTML = `Your next period is expected to start on ${nextPeriodStart.toDateString()}.`;
+        } else {
+            document.getElementById('result').innerHTML = "Please enter valid values for all fields. Ensure the cycle length is greater than the duration.";
+        }
+    }
+</script>
+
+
+
+
+{% include 'footer.html' %}
+
+</body>
+</html>
