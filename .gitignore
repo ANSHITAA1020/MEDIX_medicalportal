@@ -1,6 +1,5 @@
- 
 __pycache__/
 .env
 virtualenv/
-settings.py
-migrations
+PORTAL/PORTAL/settings.py
+migrations/
